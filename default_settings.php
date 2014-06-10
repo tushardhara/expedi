@@ -60,7 +60,7 @@ $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `optio
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1801, 'pp_instagram_username', '', 'yes');");
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1802, 'pp_footer_display_sidebar', 'true', 'yes');");
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1803, 'pp_footer_style', '4', 'yes');");
-$wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1804, 'pp_footer_text', '© 2013 Furies Theme', 'yes');");
+$wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1804, 'pp_footer_text', '© 2014 Expedi Theme', 'yes');");
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1808, 'pp_set_bg', '', 'yes');");
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1809, 'pp_blog_bg', '', 'yes');");
 $wpdb->query("INSERT IGNORE INTO `".$wpdb->prefix."options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES(1810, 'pp_contact_form_sort_data', 's:42:\"a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}\";', 'yes');");

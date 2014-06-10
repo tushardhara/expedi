@@ -1,13 +1,13 @@
 <?php
 //Get theme data
-$theme_obj = wp_get_theme('furies');
+$theme_obj = wp_get_theme('expedi');
 
 define("THEMENAME", $theme_obj['Name']);
 define("SHORTNAME", "pp");
 define("SKINSHORTNAME", "ps");
 define("THEMEVERSION", $theme_obj['Version']);
 define("THEMEDOMAIN", THEMENAME.'Language');
-define("THEMEDEMOURL", 'http://themes.themegoods.com/furies_wp');
+define("THEMEDEMOURL", 'http://365webb.se/exp/');
 
 //Get default WP uploads folder
 $wp_upload_arr = wp_upload_dir();

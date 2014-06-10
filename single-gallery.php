@@ -47,7 +47,7 @@ wp_enqueue_script("script-static-bg", get_stylesheet_directory_uri()."/templates
     			<p>You have to create a page and attach gallery to it instead of directly link to the gallery.</p>
     			
     			<p>
-    				Furies has 10 predefined gallery templates. From your admin sidebar, open <strong>Pages > Add New</strong>. You will get add new page form. Enter page title and description.
+    				Expedi has 10 predefined gallery templates. From your admin sidebar, open <strong>Pages > Add New</strong>. You will get add new page form. Enter page title and description.
 					<br/><br/>
 					Next look at <strong>"Page Options" box</strong>. On gallery... templates, you can select "Static image" or "Slideshow" as page background. If you select "Slideshow" then you have to select "Background Gallery" for it. But if you choose "Static image", you have to upload "set featured image" for its background.
 					<br/><br/>
@@ -55,7 +55,7 @@ wp_enqueue_script("script-static-bg", get_stylesheet_directory_uri()."/templates
 					<br/><br/>
 					You can also add "Password Protected" for this individual gallery page. Just enter your gallery password and when visitor view your page, they will need to enter password, you have entered here. This is option is best for displaying image gallery for certain customers :)
 					<br/><br/>
-					Next look at <strong>Page Attributes" box</strong>. Furies has 10 predefined gallery templates and you can select one for this page :)
+					Next look at <strong>Page Attributes" box</strong>. Expedi has 10 predefined gallery templates and you can select one for this page :)
     			</p>
     			
     			<br/><br/><hr/>
