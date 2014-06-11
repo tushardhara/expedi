@@ -48,13 +48,24 @@ $page_postmetas =
 		/*
 			Begin Page custom fields
 		*/
+		array("section" => "Content Position Style", "id" => "page_content_position_style", "type" => "select", "title" => "Content Position Style", "description" => "Select Content Position options for this page", "items" => 
+			array(	"Up" => "Up", 
+					"Down" => "Down", 
+				)),
 		array("section" => "Background Style", "id" => "page_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this page", "items" => 
 			array(	"Static Image" => "Static Image", 
 					"Slideshow" => "Slideshow", 
 				)),
-		
+		array("section" => "Choose Slider", "id" => "page_slider_id", "type" => "select", "title" => "Choose Slider", "description" => "Select slider type to use as background slider", "items" => 
+			array(	"Gallery Slider" => "Gallery Slider", 
+					"Layer Slider" => "Layer Slider", 
+				)),
 		array("section" => "Background Gallery", "id" => "page_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
 		
+		array("section" => "Menu", "id" => "page_menu_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
+			array(	"off" => "off", 
+					"on" => "on", 
+				)),
 		array("section" => "Content Gallery", "id" => "page_gallery_id", "type" => "select", "title" => "Content Gallery", "description" => "If you select \"Gallery\" page template. Select a gallery here", "items" => $galleries_select),
 		
 		array("section" => "Youtube Video ID", "id" => "page_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
