@@ -120,6 +120,10 @@ $page_postmetas =
 				)),
 		array("section" => "Select Menu", "id" => "page_menu_id", "type" => "select", "title" => "Select Menu", "description" => "Select this menu for the page", "items" => $list_menu),
 
+		array("section" => "Extra click button On/Off", "id" => "page_ex_option_id", "type" => "select", "title" => "Extra click button On/Off", "description" => "ON or OFF Extra click button", "items" => 
+			array(	"off" => "off", 
+					"on" => "on", 
+				)),
 		array("section" => "Youtube Video ID", "id" => "page_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		
 		array("section" => "Vimeo Video ID", "id" => "page_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),

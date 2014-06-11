@@ -13,6 +13,41 @@ foreach($galleries_arr as $gallery)
 {
 	$galleries_select[$gallery->post_title] = $gallery->ID;
 }
+
+$sliders = array();
+// Get screen options
+	$lsScreenOptions = get_option('ls-screen-options', '0');
+	$lsScreenOptions = ($lsScreenOptions == 0) ? array() : $lsScreenOptions;
+	$lsScreenOptions = is_array($lsScreenOptions) ? $lsScreenOptions : unserialize($lsScreenOptions);
+
+	// Defaults
+	if(!isset($lsScreenOptions['showTooltips'])) { $lsScreenOptions['showTooltips'] = 'true'; }
+	if(!isset($lsScreenOptions['showRemovedSliders'])) { $lsScreenOptions['showRemovedSliders'] = 'false'; }
+	if(!isset($lsScreenOptions['numberOfSliders'])) { $lsScreenOptions['numberOfSliders'] = '10'; }
+
+	// Get current page
+	$curPage = (!empty($_GET['paged']) && is_numeric($_GET['paged'])) ? (int) $_GET['paged'] : 1;
+	// $curPage = ($curPage >= $maxPage) ? $maxPage : $curPage;
+
+	// Set filters
+	$filters = array('page' => $curPage, 'limit' => (int) $lsScreenOptions['numberOfSliders']);
+	if($lsScreenOptions['showRemovedSliders'] == 'true') {
+		$filters['exclude'] = array('hidden'); }
+
+	// Find sliders
+	$sliders = LS_Sliders::find($filters);
+
+$LS_Sliders = array(
+	'' => '',
+);
+
+if(!empty($sliders)){
+	foreach($sliders as $key => $value){
+		$LS_Sliders[$value['id']]=$value['name'];
+	}
+}
+
+
 add_filter( 'manage_posts_columns', 'rt_add_gravatar_col');
 function rt_add_gravatar_col($cols) {
 	$cols['thumbnail'] = __('Thumbnail', THEMEDOMAIN);
@@ -46,12 +81,12 @@ $postmetas =
 					"Layer Slider" => "Layer Slider", 
 				)),
 		array("section" => "Background Gallery", "id" => "post_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
+		array("section" => "Background LS Gallery", "id" => "post_bg_ls_gallery_id", "type" => "select", "title" => "Background LS Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
 		
-		array("section" => "Menu", "id" => "post_menu_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
+		array("section" => "Extra click button On/Off", "id" => "post_ex_option_id", "type" => "select", "title" => "Extra click button On/Off", "description" => "ON or OFF Extra click button", "items" => 
 			array(	"off" => "off", 
 					"on" => "on", 
 				)),
-		
 		array("section" => "Youtube Video ID", "id" => "post_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		
 		array("section" => "Vimeo Video ID", "id" => "post_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),
