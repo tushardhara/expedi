@@ -33,17 +33,56 @@ $theme_sidebar = array(
 	'Blog Sidebar' => 'Blog Sidebar',
 );
 
+$menus = array();
 $menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
 
 $list_menu = array(
 	'' => '',
 );
 
-if(!empty($menus)){
-	foreach ( $menus as $menu=>$value ){
-		array_push($list_menu,$value->name);
+if(is_array($menus)){
+	if(!empty($menus)){
+		foreach ($menus as $key => $value) {
+			$list_menu[$value->name] = $value->name; 
+		}
 	}
 }
+
+
+
+$sliders = array();
+// Get screen options
+	$lsScreenOptions = get_option('ls-screen-options', '0');
+	$lsScreenOptions = ($lsScreenOptions == 0) ? array() : $lsScreenOptions;
+	$lsScreenOptions = is_array($lsScreenOptions) ? $lsScreenOptions : unserialize($lsScreenOptions);
+
+	// Defaults
+	if(!isset($lsScreenOptions['showTooltips'])) { $lsScreenOptions['showTooltips'] = 'true'; }
+	if(!isset($lsScreenOptions['showRemovedSliders'])) { $lsScreenOptions['showRemovedSliders'] = 'false'; }
+	if(!isset($lsScreenOptions['numberOfSliders'])) { $lsScreenOptions['numberOfSliders'] = '10'; }
+
+	// Get current page
+	$curPage = (!empty($_GET['paged']) && is_numeric($_GET['paged'])) ? (int) $_GET['paged'] : 1;
+	// $curPage = ($curPage >= $maxPage) ? $maxPage : $curPage;
+
+	// Set filters
+	$filters = array('page' => $curPage, 'limit' => (int) $lsScreenOptions['numberOfSliders']);
+	if($lsScreenOptions['showRemovedSliders'] == 'true') {
+		$filters['exclude'] = array('hidden'); }
+
+	// Find sliders
+	$sliders = LS_Sliders::find($filters);
+
+$LS_Sliders = array(
+	'' => '',
+);
+
+if(!empty($sliders)){
+	foreach($sliders as $key => $value){
+		$LS_Sliders[$value['id']]=$value['name'];
+	}
+}
+
 
 $dynamic_sidebar = get_option('pp_sidebar');
 
@@ -73,6 +112,7 @@ $page_postmetas =
 					"Layer Slider" => "Layer Slider", 
 				)),
 		array("section" => "Background Gallery", "id" => "page_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
+		array("section" => "Background LS Gallery", "id" => "page_bg_ls_gallery_id", "type" => "select", "title" => "Background LS Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
 		
 		array("section" => "Menu", "id" => "page_menu_option_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
 			array(	"off" => "off", 
