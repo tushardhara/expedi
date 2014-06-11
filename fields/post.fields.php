@@ -13,67 +13,6 @@ foreach($galleries_arr as $gallery)
 {
 	$galleries_select[$gallery->post_title] = $gallery->ID;
 }
-
-function post_type_portfolios() {
-	$labels = array(
-    	'name' => _x('Portfolios', 'post type general name', THEMEDOMAIN),
-    	'singular_name' => _x('Portfolio', 'post type singular name', THEMEDOMAIN),
-    	'add_new' => _x('Add New Portfolio', 'book', THEMEDOMAIN),
-    	'add_new_item' => __('Add New Portfolio', THEMEDOMAIN),
-    	'edit_item' => __('Edit Portfolio', THEMEDOMAIN),
-    	'new_item' => __('New Portfolio', THEMEDOMAIN),
-    	'view_item' => __('View Portfolio', THEMEDOMAIN),
-    	'search_items' => __('Search Portfolios', THEMEDOMAIN),
-    	'not_found' =>  __('No Portfolio found', THEMEDOMAIN),
-    	'not_found_in_trash' => __('No Portfolio found in Trash', THEMEDOMAIN), 
-    	'parent_item_colon' => ''
-	);		
-	$args = array(
-    	'labels' => $labels,
-    	'public' => true,
-    	'publicly_queryable' => true,
-    	'show_ui' => true, 
-    	'query_var' => true,
-    	'rewrite' => true,
-    	'capability_type' => 'post',
-    	'hierarchical' => false,
-    	'menu_position' => null,
-    	'supports' => array('title','editor', 'thumbnail'),
-    	'menu_icon' => get_stylesheet_directory_uri().'/functions/images/sign.png'
-	); 		
-
-	register_post_type( 'portfolios', $args );
-	
-  	$labels = array(			  
-  	  'name' => _x( 'Portfolio Sets', 'taxonomy general name', THEMEDOMAIN ),
-  	  'singular_name' => _x( 'Portfolio Set', 'taxonomy singular name', THEMEDOMAIN ),
-  	  'search_items' =>  __( 'Search Portfolio Sets', THEMEDOMAIN ),
-  	  'all_items' => __( 'All Portfolio Sets', THEMEDOMAIN ),
-  	  'parent_item' => __( 'Parent Portfolio Set', THEMEDOMAIN ),
-  	  'parent_item_colon' => __( 'Parent Portfolio Set:', THEMEDOMAIN ),
-  	  'edit_item' => __( 'Edit Portfolio Set', THEMEDOMAIN ), 
-  	  'update_item' => __( 'Update Portfolio Set', THEMEDOMAIN ),
-  	  'add_new_item' => __( 'Add New Portfolio Set', THEMEDOMAIN ),
-  	  'new_item_name' => __( 'New Portfolio Set Name', THEMEDOMAIN ),
-  	); 							  
-  	
-  	register_taxonomy(
-		'portfoliosets',
-		'portfolios',
-		array(
-			'public'=>true,
-			'hierarchical' => true,
-			'labels'=> $labels,
-			'query_var' => 'portfoliosets',
-			'show_ui' => true,
-			'rewrite' => array( 'slug' => 'portfoliosets', 'with_front' => false ),
-		)
-	);		  
-} 
-								  
-add_action('init', 'post_type_portfolios');
-
-
 add_filter( 'manage_posts_columns', 'rt_add_gravatar_col');
 function rt_add_gravatar_col($cols) {
 	$cols['thumbnail'] = __('Thumbnail', THEMEDOMAIN);
@@ -92,23 +31,7 @@ function rt_get_author_gravatar($column_name ) {
 */
 
 $postmetas = 
-	array (
-		
-		'portfolios' => array(
-			array("section" => "Content Type", "id" => "portfolio_type", "type" => "select", "title" => "Video Type", "description" => "Select content type for this portfolio item:", 
-				"items" => array(
-					"Youtube Video" => "Youtube Video", 
-					"Vimeo Video" => "Vimeo Video", 
-					"Self-Hosted Video" => "Self-Hosted Video",
-					"Portfolio Content" => "Portfolio Content",
-					"External Link" => "External Link",
-				)),
-				
-				array("section" => "Content Type", "id" => "portfolio_video_id", "title" => "Youtube or Vimeo Video ID", "description" => "If you select Youtube Video or Vimeo Video. Enter your video ID here:"),
-				array("section" => "Content Type", "id" => "portfolio_mp4_url", "title" => "Video URL (.mp4 file format)", "description" => "If you select Self-Hosted. Enter your video URL (.mp4 file format):"),
-				array("section" => "Content Type", "id" => "portfolio_link_url", "title" => "Link URL (for external link content type only)", "description" => "Portfolio item will link to this URL"),
-		),
-		
+	array (		
 		'post' => array(
 			array("section" => "Background Style", "id" => "post_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this post", "items" => 
 			array(	"Static Image" => "Static Image", 

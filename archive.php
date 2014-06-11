@@ -5,27 +5,6 @@
  * @package WordPress
 */
 
-//Check if portfolio post type then go to another template
-$post_type = get_post_type();
-if($post_type == 'portfolios')
-{
-	$pp_set_page_template = get_option('pp_set_page_template');
-	if(empty($pp_set_page_template))
-	{
-		$pp_set_page_template = 3;
-	}
-	
-	if(file_exists(get_template_directory() . "/portfolio-".$pp_set_page_template.".php"))
-	{
-		get_template_part("portfolio-".$pp_set_page_template);
-	}
-	else
-	{
-		get_template_part("portfolio-3");
-	}
-	exit;
-}
-
 /**
 *	Get Current page object
 **/
