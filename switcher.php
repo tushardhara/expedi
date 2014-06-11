@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pp_url = 'http://localhost';
+$pp_url = 'http://365webb.se/exp/';
 //$pp_url = 'http://themes.themegoods.com/keres_wp/';
 
 if(isset($_GET['pp_homepage_style']))

@@ -455,7 +455,7 @@ $pp_font_family = get_option('pp_font_family');
 	<div class="header_wrap">
 		<div style="float:left">
 		<h2>Theme Setting</h2>(v<?php echo THEMEVERSION; ?>)
-		For future updates follow me <a href="http://themeforest.net/user/peerapong">@themeforest</a> or <a href="http://twitter.com/ipeerapong">@twitter</a>
+		
 		</div>
 		<div style="float:right;margin:32px 0 0 0">
 			<input id="save_ppsettings" name="save_ppsettings" class="button-primary" type="submit" value="Save changes" style="margin-left: 25px;" />

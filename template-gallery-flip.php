@@ -1,6 +1,5 @@
 <?php
 /**
-
  * The main template file for display portfolio page.
  *
  * Template Name: Gallery Flip
