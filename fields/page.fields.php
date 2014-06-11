@@ -33,6 +33,18 @@ $theme_sidebar = array(
 	'Blog Sidebar' => 'Blog Sidebar',
 );
 
+$menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+
+$list_menu = array(
+	'' => '',
+);
+
+if(!empty($menus)){
+	foreach ( $menus as $menu=>$value ){
+		array_push($list_menu,$value->name);
+	}
+}
+
 $dynamic_sidebar = get_option('pp_sidebar');
 
 if(!empty($dynamic_sidebar))
@@ -62,21 +74,17 @@ $page_postmetas =
 				)),
 		array("section" => "Background Gallery", "id" => "page_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
 		
-		array("section" => "Menu", "id" => "page_menu_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
+		array("section" => "Menu", "id" => "page_menu_option_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
 			array(	"off" => "off", 
 					"on" => "on", 
 				)),
-		array("section" => "Content Gallery", "id" => "page_gallery_id", "type" => "select", "title" => "Content Gallery", "description" => "If you select \"Gallery\" page template. Select a gallery here", "items" => $galleries_select),
-		
+		array("section" => "Select Menu", "id" => "page_menu_id", "type" => "select", "title" => "Select Menu", "description" => "Select this menu for the page", "items" => $list_menu),
+
 		array("section" => "Youtube Video ID", "id" => "page_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		
 		array("section" => "Vimeo Video ID", "id" => "page_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),
 		
-		array("section" => "Password Protect", "id" => "portfolio_password", "title" => "Password", "description" => "Enter your password for the gallery (If you select \"Gallery\" page template)"),
-		
 		array("section" => "Select Sidebar", "id" => "page_sidebar", "type" => "select", "title" => "Page Sidebar", "description" => "Select this page's sidebar to display", "items" => $theme_sidebar),
-		
-		array("section" => "Background Audio", "id" => "page_audio", "type" => "file", "title" => "Page Background Audio", "description" => "Support file types *.mp3, *.mp4"),
 		/*
 			End Page custom fields
 		*/

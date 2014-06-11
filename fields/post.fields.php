@@ -33,12 +33,30 @@ function rt_get_author_gravatar($column_name ) {
 $postmetas = 
 	array (		
 		'post' => array(
-			array("section" => "Background Style", "id" => "post_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this post", "items" => 
+			array("section" => "Content Position Style", "id" => "post_content_position_style", "type" => "select", "title" => "Content Position Style", "description" => "Select Content Position options for this page", "items" => 
+			array(	"Up" => "Up", 
+					"Down" => "Down", 
+				)),
+		array("section" => "Background Style", "id" => "post_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this page", "items" => 
 			array(	"Static Image" => "Static Image", 
 					"Slideshow" => "Slideshow", 
 				)),
+		array("section" => "Choose Slider", "id" => "post_slider_id", "type" => "select", "title" => "Choose Slider", "description" => "Select slider type to use as background slider", "items" => 
+			array(	"Gallery Slider" => "Gallery Slider", 
+					"Layer Slider" => "Layer Slider", 
+				)),
+		array("section" => "Background Gallery", "id" => "post_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
 		
-			array("section" => "Background Gallery", "id" => "post_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here:", "items" => $galleries_select),
+		array("section" => "Menu", "id" => "post_menu_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
+			array(	"off" => "off", 
+					"on" => "on", 
+				)),
+		
+		array("section" => "Youtube Video ID", "id" => "post_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
+		
+		array("section" => "Vimeo Video ID", "id" => "post_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),
+		
+		array("section" => "Select Sidebar", "id" => "post_sidebar", "type" => "select", "title" => "Page Sidebar", "description" => "Select this page's sidebar to display", "items" => $theme_sidebar),
 		),
 );
 
