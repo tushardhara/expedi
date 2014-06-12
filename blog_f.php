@@ -123,17 +123,7 @@ if(!empty($page_audio))
 
     	<!-- Begin main content -->
     	<div class="inner_wrapper">
-    	
-    		<div id="page_caption">
-    			<h1 class="cufon"><?php the_title(); ?></h1>
-    			
-    			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>		
-
-	    		<?php the_content(); ?><br/>
-	
-	    	<?php endwhile; ?>
-    		</div>
-    		
+    	    		
     		<div class="sidebar_content full_width transparentbg">
 
 					
