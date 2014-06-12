@@ -578,4 +578,16 @@ $j(document).ready(function(){
 	    	$j('body,html').animate({scrollTop:0},800);
     	}
     });
+
+    $j('.uparrow').on('click',function(){
+    	if($j(this).hasClass('up')){
+    		$j(this).removeClass('up').addClass('down');
+    		$j('.page_content_wrapper').removeClass('down').addClass('up');
+    		$j('.half-circle').removeClass('show').addClass('hide');
+    	}else if($j(this).hasClass('down')){
+    		$j(this).removeClass('down').addClass('up');
+    		$j('.page_content_wrapper').removeClass('up').addClass('down');
+    		$j('.half-circle').removeClass('hide').addClass('show');
+    	}
+    });
 });

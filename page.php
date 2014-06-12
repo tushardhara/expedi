@@ -21,6 +21,34 @@ if(isset($page->ID))
     $current_page_id = $page->ID;
 }
 
+$page_ex_option = get_post_meta($current_page_id, 'page_ex_option_id', true);
+
+if(empty($page_ex_option))
+{
+    $page_ex_option = 'off';
+}
+
+$page_content_position = get_post_meta($current_page_id, 'page_content_position_style', true);
+
+if(empty($page_content_position))
+{
+    $page_content_position = 'up';
+}
+
+$page_menu_option = get_post_meta($current_page_id, 'page_menu_option_id',true);
+
+if(empty($page_menu_option))
+{
+    $page_menu_option = 'off';
+}
+
+$page_menu_name = get_post_meta($current_page_id, 'page_menu_id',true);
+
+if(empty($page_menu_name))
+{
+    $page_menu_name = '';
+}
+
 get_header(); 
 ?>
 
@@ -108,23 +136,42 @@ if(!empty($page_audio))
 <?php
 }
 ?>
-
-<div id="page_content_wrapper">
+<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
+<?php $page_menu_style=($page_menu_option=='off' ? 'no-menu' : '');?>
+<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
 
     <div class="inner">
     
     <!-- Begin main content -->
     <div class="inner_wrapper">
     
-    	<div id="page_caption">
-    		<h1 class="cufon"><?php the_title(); ?></h1>
-    	</div>
+    	
         
         <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>		
         	
-        	<div class="sidebar_content full_width transparentbg">
-        	
-        			<?php the_content(); ?>
+        	<?php if($page_ex_option == 'on'){ ?>
+                <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
+            <?php } ?>
+            <div class="sidebar_content full_width transparentbg">
+                <div class="uparrow <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
+                <?php if($page_menu_option == 'on') {?>
+                    <?php 
+                        if($page_menu_name != ''){
+                            wp_nav_menu( 
+                                array( 
+                                    'menu'            => $page_menu_name,
+                                    'container'       => 'nav',
+                                    'container_class' => 'page-menu-nav',
+                                    'items_wrap'      => '%3$s',
+                                ) 
+                            );
+                        }
+                    ?>
+                <?php } ?>
+                <div id="page_caption">
+                    <h1 class="cufon"><?php the_title(); ?></h1>
+                </div>
+        		<?php the_content(); ?>
         			
         	</div>
 

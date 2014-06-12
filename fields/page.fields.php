@@ -100,8 +100,8 @@ $page_postmetas =
 			Begin Page custom fields
 		*/
 		array("section" => "Content Position Style", "id" => "page_content_position_style", "type" => "select", "title" => "Content Position Style", "description" => "Select Content Position options for this page", "items" => 
-			array(	"Up" => "Up", 
-					"Down" => "Down", 
+			array(	"up" => "up", 
+					"down" => "down", 
 				)),
 		array("section" => "Background Style", "id" => "page_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this page", "items" => 
 			array(	"Static Image" => "Static Image", 
