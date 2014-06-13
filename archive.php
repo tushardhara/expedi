@@ -23,27 +23,39 @@ get_header();
 
 //Get Page background style
 $pp_blog_bg = get_option('pp_blog_bg'); 
-			
+$pp_blog_up_down_layout = get_option('pp_blog_up_down_layout');
+$pp_blog_ex_button_layout = get_option('pp_blog_ex_button_layout');
 if(empty($pp_blog_bg))
 {
     $pp_blog_bg = get_stylesheet_directory_uri().'/example/bg.jpg';
 }
-
+if(empty($pp_blog_up_down_layout)){
+	$pp_blog_up_down_layout = 'up';
+}
+if(empty($pp_blog_ex_button_layout)){
+	$pp_blog_ex_button_layout = 'off';
+}
 wp_enqueue_script("script-static-bg", get_stylesheet_directory_uri()."/templates/script-static-bg.php?bg_url=".$pp_blog_bg, false, THEMEVERSION, true);
 ?>
 
 <!-- Begin content -->
 <br class="clear"/>
 </div>
-
-<div id="page_content_wrapper">
+<?php $pp_blog_ex_button_style=($pp_blog_ex_button_layout=='off' ? 'no-half' : '');?>
+<div id="page_content_wrapper" class="page_content_wrapper <?php echo $pp_blog_ex_button_style;?> <?php echo $pp_blog_up_down_layout;?> <?php echo 'no-menu';?>">
     
     <div class="inner">
 
     	<!-- Begin main content -->
     	<div class="inner_wrapper">
     	
-    		<div id="page_caption">
+    		
+    		<?php if($pp_blog_ex_button_layout == 'on'){ ?>
+                <div class="half-circle <?php echo $pp_blog_up_down_layout == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
+            <?php } ?>
+    		<div class="sidebar_content full_width transparentbg">
+    			<div class="uparrow <?php echo $posi=($pp_blog_up_down_layout == 'up' ? 'down' : 'up');?>"></div>
+    			<div id="page_caption">
     			<h1 class="cufon"><?php if ( is_day() ) : ?>
 				<?php printf( __( '%s', '' ), get_the_date() ); ?>
 <?php elseif ( is_month() ) : ?>
@@ -54,9 +66,6 @@ wp_enqueue_script("script-static-bg", get_stylesheet_directory_uri()."/templates
 				<?php _e( 'Blog Archives', '' ); ?>
 <?php endif; ?></h1>
     		</div>
-    		
-    		<div class="sidebar_content full_width transparentbg">
-
     			<div class="sidebar_content">
 					
 <?php

@@ -1534,6 +1534,7 @@ ul.children .comment:first-child
     font-size: 16px;
     text-align: center;
     line-height: 1;
+    cursor: pointer;
 }
 #page_content_wrapper .inner .half-circle.hide{
 	display: none;

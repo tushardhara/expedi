@@ -23,6 +23,21 @@ $current_page_id = $post->ID;
 //Get Page background style
 $bg_style = get_post_meta($current_page_id, 'post_bg_style', true);
 
+$page_ex_option = get_post_meta($current_page_id, 'post_ex_option_id', true);
+
+if(empty($page_ex_option))
+{
+    $page_ex_option = 'off';
+}
+
+$page_content_position = get_post_meta($current_page_id, 'post_content_position_style', true);
+
+if(empty($page_content_position))
+{
+    $page_content_position = 'up';
+}
+
+
 if(empty($bg_style) OR $bg_style == 'Static Image')
 {
     if(has_post_thumbnail($current_page_id, 'full'))
@@ -86,19 +101,18 @@ else
 }
 ?>
 
-<div id="page_content_wrapper">
+<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
+<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> no-menu">
     
     <div class="inner">
 
     	<!-- Begin main content -->
     	<div class="inner_wrapper">
-    	
-    		<div id="page_caption">
-    			<h2 class="cufon"><?php the_title(); ?></h2>
-    		</div>
-
+    	    <?php if($page_ex_option == 'on'){ ?>
+                <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
+            <?php } ?>
 	    	<div class="sidebar_content full_width transparentbg">
-
+                <div class="uparrow <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
     		<div class="sidebar_content">
 					
 <?php
@@ -118,7 +132,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 						
 <!-- Begin each blog post -->
 <div class="post_wrapper">
-
+    <div class="post_header">
+        <h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+    </div>
+    
+    <br class="clear"/>
 	<?php
     	if(!empty($image_thumb))
     	{
@@ -147,7 +165,7 @@ if (have_posts()) : while (have_posts()) : the_post();
     		<a href=""><?php comments_number('0 Comment', '1 Comment', '% Comments'); ?></a>
     	</div>
     	<br class="clear"/>
-    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+    	<!--h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5-->
     </div>
     
     <br class="clear"/>

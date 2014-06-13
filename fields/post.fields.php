@@ -43,10 +43,9 @@ $LS_Sliders = array(
 
 if(!empty($sliders)){
 	foreach($sliders as $key => $value){
-		$LS_Sliders[$value['id']]=$value['name'];
+		$LS_Sliders[$value['name']]=$value['id'];
 	}
 }
-
 
 add_filter( 'manage_posts_columns', 'rt_add_gravatar_col');
 function rt_add_gravatar_col($cols) {
@@ -69,8 +68,8 @@ $postmetas =
 	array (		
 		'post' => array(
 			array("section" => "Content Position Style", "id" => "post_content_position_style", "type" => "select", "title" => "Content Position Style", "description" => "Select Content Position options for this page", "items" => 
-			array(	"Up" => "Up", 
-					"Down" => "Down", 
+			array(	"up" => "up", 
+					"down" => "down", 
 				)),
 		array("section" => "Background Style", "id" => "post_bg_style", "type" => "select", "title" => "Background Style", "description" => "Select background options for this page", "items" => 
 			array(	"Static Image" => "Static Image", 
@@ -81,6 +80,7 @@ $postmetas =
 					"Layer Slider" => "Layer Slider", 
 				)),
 		array("section" => "Background Gallery", "id" => "post_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
+		
 		array("section" => "Background LS Gallery", "id" => "post_bg_ls_gallery_id", "type" => "select", "title" => "Background LS Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
 		
 		array("section" => "Extra click button On/Off", "id" => "post_ex_option_id", "type" => "select", "title" => "Extra click button On/Off", "description" => "ON or OFF Extra click button", "items" => 

@@ -456,8 +456,26 @@ array( "name" => "Archive, Category, Search, Tag pages Background Image",
 	"type" => "image",
 	"size" => "290px",
 ),
-
-
+array( "name" => "Archive, Category, Search, Tag pages Layout position",
+	"desc" => "",
+	"id" => $shortname."_blog_up_down_layout",
+	"type" => "select",
+	"options" => array(
+		'up' => 'up',
+		'down' => 'down',
+	),
+	"std" => 1
+),
+array( "name" => "Archive, Category, Search, Tag pages Layout Extra buttton position",
+	"desc" => "",
+	"id" => $shortname."_blog_ex_button_layout",
+	"type" => "select",
+	"options" => array(
+		'off' => 'off',
+		'on' => 'on',
+	),
+	"std" => 1
+),
 array( "type" => "close"),
 
 

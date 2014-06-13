@@ -590,4 +590,11 @@ $j(document).ready(function(){
     		$j('.half-circle').removeClass('hide').addClass('show');
     	}
     });
+    $j('.half-circle').on('click',function(){
+    	if($j(this).hasClass('show')){
+    		$j('.uparrow').removeClass('up').addClass('down');
+    		$j('.page_content_wrapper').removeClass('down').addClass('up');
+    		$j(this).removeClass('show').addClass('hide');
+    	}
+    });
 });
