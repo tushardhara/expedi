@@ -4,6 +4,7 @@
 .ls-davidfull{
 	position: fixed;
 	top: 0px;
+	z-index: 0;
 }
 .ls-davidfull .ls-playvideo {
 	width: 60px;
