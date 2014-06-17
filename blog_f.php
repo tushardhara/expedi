@@ -47,6 +47,11 @@ if(empty($page_menu_name))
 {
     $page_menu_name = '';
 }
+$page_slider_id = get_post_meta($current_page_id,'page_slider_id',true);
+
+if(empty($page_slider_id)){
+    $page_slider_id = 'Gallery Slider';
+}
 get_header(); 
 ?>
 
@@ -84,6 +89,7 @@ if($bg_style == 'Static Image')
 } // end if static image
 else
 {
+	if($page_slider_id == 'Gallery Slider') {
     $page_bg_gallery_id = get_post_meta($current_page_id, 'page_bg_gallery_id', true);
     wp_enqueue_script("script-supersized-gallery", get_stylesheet_directory_uri()."/templates/script-supersized-gallery.php?gallery_id=".$page_bg_gallery_id, false, THEMEVERSION, true);
 ?>
@@ -98,6 +104,10 @@ else
 <input type="hidden" id="pp_image_path" name="pp_image_path" value="<?php echo get_stylesheet_directory_uri(); ?>/images/"/>
 
 <?php
+	}else{
+        $page_bg_ls_gallery_id = get_post_meta($current_page_id, 'page_bg_ls_gallery_id', true);
+        layerslider($page_bg_ls_gallery_id);
+    }
 }
 ?>
 
