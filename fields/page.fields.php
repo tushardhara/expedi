@@ -71,8 +71,9 @@ $sliders = array();
 		$filters['exclude'] = array('hidden'); }
 
 	// Find sliders
-	$sliders = LS_Sliders::find($filters);
-
+	if(isset($LSC)){
+		$sliders = LS_Sliders::find($filters);
+	}
 $LS_Sliders = array(
 	'' => '',
 );
