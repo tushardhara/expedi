@@ -51,8 +51,8 @@ function layerslider_enqueue_admin_res() {
 
 	// Use Gogole CDN version of jQuery
 	if(get_option('ls_use_custom_jquery', false)) {
-		wp_deregister_script('jquery');
-		wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3');
+		//wp_deregister_script('jquery');
+		//wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3');
 	}
 
 	// Load LayerSlider-only resources
