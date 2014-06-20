@@ -247,7 +247,7 @@ else
 if(!empty($pp_font_family))
 {
 ?>
-h1, h2, h3, h4, h5, h6, #gallery_caption h2, div.home_header, .nav li a, .nav_page_number li, #footer { font-family: '<?php echo $pp_font_family; ?>'; }		
+h1, h2, h3, h4, h5, h6, #gallery_caption h2, div.home_header, .nav li a, .nav_page_number li { font-family: '<?php echo $pp_font_family; ?>'; }		
 <?php
 }
 
