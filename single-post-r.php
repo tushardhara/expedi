@@ -77,7 +77,7 @@ else
 <?php
     }else{
         $page_bg_ls_gallery_id = get_post_meta($current_page_id, 'post_bg_ls_gallery_id', true);
-        layerslider($page_bg_ls_gallery_id);
+        if(function_exists ('layerslider')){layerslider($page_bg_ls_gallery_id);}
     }
 }
 ?>

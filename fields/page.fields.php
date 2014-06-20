@@ -11,7 +11,7 @@
 /*
 	Begin creating custom fields
 */
-
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 $args = array(
     'numberposts' => -1,
     'post_type' => array('gallery'),
@@ -51,7 +51,8 @@ if(is_array($menus)){
 
 
 $sliders = array();
-// Get screen options
+if ( is_plugin_active( 'LayerSlider/layerslider.php' ) ) {
+ 	// Get screen options
 	$lsScreenOptions = get_option('ls-screen-options', '0');
 	$lsScreenOptions = ($lsScreenOptions == 0) ? array() : $lsScreenOptions;
 	$lsScreenOptions = is_array($lsScreenOptions) ? $lsScreenOptions : unserialize($lsScreenOptions);
@@ -71,9 +72,10 @@ $sliders = array();
 		$filters['exclude'] = array('hidden'); }
 
 	// Find sliders
-	if(isset($LSC)){
+
 		$sliders = LS_Sliders::find($filters);
-	}
+} 
+	
 $LS_Sliders = array(
 	'' => '',
 );
