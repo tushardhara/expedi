@@ -3229,3 +3229,20 @@ body.single-attachment p.attachment {
 {
 	color: #ff0000;
 }
+
+body>.site-loader {
+    position: fixed;
+    background: white;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    opacity: 1;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+body>.site-loader.pe-disabled {
+    opacity: 0
+}

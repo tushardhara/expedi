@@ -117,6 +117,7 @@ else
 }
 ?>
 <body <?php body_class(); ?> <?php if(is_home() && $pp_homepage_style == 'flow') { ?>data-gallery="flow"<?php } ?>>
+<div class="site-loader"></div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

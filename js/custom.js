@@ -597,4 +597,33 @@ $j(document).ready(function(){
     		$j(this).removeClass('show').addClass('hide');
     	}
     });
+    $j("body").on("click", "a[href]", hashHandler);
+    hashHandler();
+    overlay = $j("body").find("> .site-loader");
+    if (overlay.length > 0) {
+        setTimeout(function() {
+            overlay.addClass("pe-disabled");
+            setTimeout(function() {
+                overlay.css("visibility", "hidden")
+            }, 500);
+            $j(window).on("beforeunload", function(e) {
+                overlay.css("visibility", "visible").removeClass("pe-disabled")
+            })
+        }, 500)
+    }
+    function hashHandler(e) {
+	    var url = (e && e.currentTarget) ? e.currentTarget.href : window.location.href;
+	    var hash = url.split(/#/)[1];
+	    if (hash) {
+	        var section = sections.filter('[id="section-%0"]'.format(hash));
+	        if (section.length > 0) {
+	            makeActive(hash);
+	            scrolling = true;
+	            sticky();
+	            var fixed = header.css("position") == "fixed";
+	            scroller.animate({scrollTop: section.offset().top - (fixed ? stickyH : 0) + 4}, 500, scrollEnd)
+	        }
+	    }
+	}
 });
+
