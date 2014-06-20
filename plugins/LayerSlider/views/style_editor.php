@@ -1,5 +1,10 @@
 <?php
 
+	if(!defined('LS_ROOT_FILE')) { 
+		header('HTTP/1.0 403 Forbidden');
+		exit;
+	}
+
 	// Get uploads dir
 	$upload_dir = wp_upload_dir();
 	$file = $upload_dir['basedir'].'/layerslider.custom.css';
@@ -35,13 +40,13 @@
 
 	<!-- Page title -->
 	<h2>
-		<?php _e('LayerSlider Custom Styles Editor', 'LayerSlider') ?>
+		<?php _e('LayerSlider CSS Editor', 'LayerSlider') ?>
 		<a href="?page=layerslider" class="add-new-h2"><?php _e('Back to the list', 'LayerSlider') ?></a>
 	</h2>
 
 	<!-- Error messages -->
 	<?php if(isset($_GET['edited'])) : ?>
-	<div class="ls-notification changed">
+	<div class="ls-notification updated">
 		<div><?php _e('Your changes has been saved!', 'LayerSlider') ?></div>
 	</div>
 	<?php endif; ?>
@@ -56,8 +61,8 @@
 		<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="inner">
 			<input type="hidden" name="ls-user-css" value="1">
 			<?php wp_nonce_field('save-user-css'); ?>
-			<textarea rows="10" cols="50" name="contents"class="ls-codemirror"><?php if(!empty($contents)) {
-					echo stripslashes($contents);
+			<textarea rows="10" cols="50" name="contents" class="ls-codemirror"><?php if(!empty($contents)) {
+					echo htmlentities($contents);
 				} else {
 					_e('/* You can type here any CSS code that will be loaded both on your admin and front-end pages.', 'LayerSlider');
 					echo NL;

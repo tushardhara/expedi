@@ -1,5 +1,10 @@
 <?php
 
+	if(!defined('LS_ROOT_FILE')) { 
+		header('HTTP/1.0 403 Forbidden');
+		exit;
+	}
+	
 	// Get screen options
 	$lsScreenOptions = get_option('ls-screen-options', '0');
 	$lsScreenOptions = ($lsScreenOptions == 0) ? array() : $lsScreenOptions;
@@ -39,6 +44,13 @@
 
 	// Auto-updates
 	$code = get_option('layerslider-purchase-code', '');
+	if(!empty($code)) {
+		$start = substr($code, 0, -6);
+		$end = substr($code, -6);
+		$code = preg_replace("/[a-zA-Z0-9]/", '●', $start) . $end;
+		$code = str_replace('-', ' ', $code);
+	}
+
 	$validity = get_option('layerslider-validated', '0');
 	$channel = get_option('layerslider-release-channel', 'stable');
 
@@ -61,6 +73,7 @@
 		'restoreSelectError' => __('No sliders were selected.', 'LayerSlider'),
 		'restoreSuccess' => __('The selected sliders were restored.', 'LayerSlider'),
 
+		'exportNotFound' => __('No sliders were found to export.', 'LayerSlider'),
 		'exportSelectError' => __('No sliders were selected to export.', 'LayerSlider'),
 		'exportZipError' => __('The PHP ZipArchive extension is required to import ZIPs.', 'LayerSlider'),
 
@@ -78,7 +91,7 @@
 		<form id="ls-screen-options-form" action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
 			<h5><?php _e('Show on screen', 'LayerSlider') ?></h5>
 			<label><input type="checkbox" name="showTooltips"<?php echo $lsScreenOptions['showTooltips'] == 'true' ? ' checked="checked"' : ''?>> <?php _e('Tooltips', 'LayerSlider') ?></label>
-			<label><input type="checkbox" name="showRemovedSliders" class="reload"<?php echo $lsScreenOptions['showRemovedSliders'] == 'true' ? ' checked="checked"' : ''?>> <?php _e('Removed sliders', 'LayerSlider') ?></label><br>
+			<label><input type="checkbox" name="showRemovedSliders" class="reload"<?php echo $lsScreenOptions['showRemovedSliders'] == 'true' ? ' checked="checked"' : ''?>> <?php _e('Removed sliders', 'LayerSlider') ?></label><br><br>
 
 			<input type="number" name="numberOfSliders" min="3" step="1" value="<?php echo $lsScreenOptions['numberOfSliders'] ?>"> <?php _e('Sliders', 'LayerSlider') ?>
 			<button class="button"><?php _e('Apply', 'LayerSlider') ?></button>
@@ -92,12 +105,12 @@
 	<h2>
 		<?php _e('LayerSlider sliders', 'LayerSlider') ?>
 		<a href="#" id="ls-add-slider-button" class="add-new-h2"><?php _e('Add New', 'LayerSlider') ?></a>
-		<a href="<?php echo wp_nonce_url('?page=layerslider&action=import_sample', 'import-sample-sliders') ?>" id="ls-import-samples-button" class="add-new-h2"><?php _e('Import sample sliders', 'LayerSlider') ?></a>
+		<a href="#" id="ls-import-samples-button" class="add-new-h2"><?php _e('Import sample sliders', 'LayerSlider') ?></a>
 	</h2>
 
 	<!-- Error messages -->
 	<?php if(isset($_GET['message'])) : ?>
-	<div class="ls-notification <?php echo isset($_GET['error']) ? 'warning' : 'changed' ?>">
+	<div class="ls-notification <?php echo isset($_GET['error']) ? 'error' : 'updated' ?>">
 		<div><?php echo $notifications[ $_GET['message'] ] ?></div>
 	</div>
 	<?php endif; ?>
@@ -209,8 +222,8 @@
 							<a href="<?php echo wp_nonce_url('?page=layerslider&action=duplicate&id='.$item['id'], 'duplicate_'.$item['id']) ?>">
 								<span class="dashicons dashicons-admin-page" data-help="<?php _e('Duplicate this slider', 'LayerSlider') ?>"></span>
 							</a>
-							<a href="<?php echo wp_nonce_url('?page=layerslider&action=remove&id='.$item['id'], 'remove_'.$item['id']) ?>">
-								<span class="dashicons dashicons-post-trash" data-help="<?php _e('Remove this slider', 'LayerSlider') ?>"></span>
+							<a href="<?php echo wp_nonce_url('?page=layerslider&action=remove&id='.$item['id'], 'remove_'.$item['id']) ?>" class="remove">
+								<span class="dashicons dashicons-trash" data-help="<?php _e('Remove this slider', 'LayerSlider') ?>"></span>
 							</a>
 							<?php else : ?>
 							<a href="<?php echo wp_nonce_url('?page=layerslider&action=restore&id='.$item['id'], 'restore_'.$item['id']) ?>">
@@ -230,7 +243,7 @@
 			</table>
 			<div class="ls-bulk-actions">
 			<select name="action">
-				<option value="0"><?php _e('Choose an action', 'LayerSlider') ?></option>
+				<option value="0"><?php _e('Bulk Actions', 'LayerSlider') ?></option>
 				<option value="remove"><?php _e('Remove selected', 'LayerSlider') ?></option>
 				<option value="delete"><?php _e('Delete permanently', 'LayerSlider') ?></option>
 				<?php if($lsScreenOptions['showRemovedSliders'] == 'true') : ?>
@@ -263,40 +276,41 @@
 	<div class="ls-export-wrapper columns clearfix">
 		<div class="half">
 			<div class="ls-import-export-box ls-box">
-				<h3 class="header medium"><?php _e('Import & Export Sliders', 'LayerSlider') ?></h3>
+				<h3 class="header medium"><?php _e('Import Sliders', 'LayerSlider') ?></h3>
 				<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" enctype="multipart/form-data" class="ls-import-box">
 					<?php wp_nonce_field('import-sliders'); ?>
 					<input type="hidden" name="ls-import" value="1">
 					<table data-help="<?php _e('Choose a LayerSlider export file downloaded previously to import your sliders. To import from outdated versions, you need to create a file and paste the export code into it. The file needs to have a .json extension.', 'LayerSlider') ?>">
 						<tbody>
 							<tr>
-								<td><?php  _e('Import Sliders', 'LayerSlider') ?></td>
 								<td><input type="file" name="import_file"></td>
 								<td><button class="button"><?php _e('Import', 'LayerSlider') ?></button></td>
 							</tr>
 						</tbody>
 					</table>
 				</form>
+			</div>
+			<div class="ls-import-export-box ls-box">
+				<h3 class="header medium"><?php _e('Export Sliders', 'LayerSlider') ?></h3>
 				<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="ls-export-form">
 					<?php wp_nonce_field('export-sliders'); ?>
 					<input type="hidden" name="ls-export" value="1">
 					<table>
 						<tbody>
 							<tr>
-								<td valign="top"><?php _e('Export Sliders', 'LayerSlider') ?></td>
 								<td>
 									<select name="sliders[]" multiple="multiple" data-help="<?php _e('Downloads an export file that contains your selected sliders to import on your new site. You can select multiple sliders by holding the Ctrl/Cmd button while clicking.', 'LayerSlider') ?>">
 										<option value="-1" selected> <?php _e('All Sliders', 'LayerSlider') ?></option>
 										<?php foreach($sliders as $slider) : ?>
 										<option value="<?php echo $slider['id'] ?>">
 											#<?php echo str_replace(' ', '&nbsp;', str_pad($slider['id'], 3, " ")) ?> -
-											<?php echo $slider['name'] ?>
+											<?php echo apply_filters('ls_slider_title', $slider['name'], 30) ?>
 										</option>
 										<?php endforeach; ?>
 									</select>
 
 									<label>
-										<input type="checkbox"  class="checkbox" name="exportWithImages" checked> Export with images
+										<input type="checkbox"  class="checkbox" name="exportWithImages" checked> Export images
 									</label>
 									<button class="button"><?php _e('Export', 'LayerSlider') ?></button>
 								</td>
@@ -304,8 +318,7 @@
 						</tbody>
 						<tfoot>
 							<tr data-help="The PHP ZipArchive extension is needed for exporting/importing images. The plugin will only copy your slider settings if it's not available. In that case please contact with your hosting provider.">
-								<td>Status</td>
-								<td colspan="2" class="<?php echo class_exists('ZipArchive') ? 'available' : 'notavailable' ?>">
+								<td class="<?php echo class_exists('ZipArchive') ? 'available' : 'notavailable' ?>">
 									<?php echo class_exists('ZipArchive') ? 
 										'ZipArchive is available to import/export images' : 
 										'ZipArchive isn\'t avilable' 
@@ -355,13 +368,17 @@
 		</div>
 
 		<div class="half">
-			<?php if($GLOBALS['lsAutoUpdateBox'] == true) : ?>
 			<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post" class="ls-box ls-settings ls-auto-update">
 				<input type="hidden" name="action" value="layerslider_verify_purchase_code">
 				<h3 class="header medium blue">
 					<?php _e('Auto-updates', 'LayerSlider') ?>
 					<figure><span>|</span><?php _e('Update notifications and one-click installation', 'LayerSlider') ?></figure>
 				</h3>
+				<?php if($GLOBALS['lsAutoUpdateBox'] == false) : ?>
+					<div class="inner" style="border-bottom: 1px solid #e3e3e3;">
+						<?php _e("It seems you've received LayerSlider with a theme. Please note, the auto-update feature only works if you've purchased the plugin separately from us on <a href=\"http://codecanyon.net/item/layerslider-responsive-wordpress-slider-plugin-/1362246\" target=\"_blank\">CodeCanyon</a>.", "LayerSlider"); ?>
+					</div>
+				<?php endif ?>
 				<table>
 					<tbody>
 						<tr>
@@ -396,14 +413,6 @@
 					</span>
 				</div>
 			</form>
-			<?php else : ?>
-			<div class="ls-box ls-settings ls-auto-update">
-				<h3 class="header medium blue"><?php _e('Auto-updates', 'LayerSlider') ?></h3>
-				<div class="inner" style="text-align: justify;">
-					<?php _e("It seems you've received LayerSlider with your current theme. Our auto-update mechanism only works with a direct purchase of the plugin, thus you can receive newer versions by updating your theme. Please note, updates are available for everyone at the same time, but it might take some time while theme authors include them in their own releases.", "LayerSlider"); ?>
-				</div>
-			</div>
-			<?php endif; ?>
 		</div>
 	</div>
 
@@ -473,8 +482,8 @@
 				<?php foreach($googleFonts as $key => $item): ?>
 				<li>
 					<a href="#" class="remove" title="Remove this font">x</a>
-					<input type="text" name="urlParams[<?php echo $key ?>]" value="<?php echo $item['param'] ?>" readonly="readonly">
-					<input type="checkbox" name="onlyOnAdmin[<?php echo $key ?>]" <?php echo $item['admin'] ? ' checked="checked"' : '' ?>>
+					<input type="text" name="urlParams[]" value="<?php echo $item['param'] ?>" readonly="readonly">
+					<input type="checkbox" name="onlyOnAdmin[]" <?php echo $item['admin'] ? ' checked="checked"' : '' ?>>
 					<?php _e('Load only on admin interface', 'LayerSlider') ?>
 				</li>
 				<?php endforeach ?>

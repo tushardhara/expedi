@@ -113,6 +113,10 @@
 			&:hover { color: orange; }
 		}
 
+		&.dashicons-trash:before {
+			content: "\f182";
+		}
+
 		&.dashicons-trash:hover {
 			color: #E14D43;
 		}
@@ -169,17 +173,12 @@ div.ls-bulk-actions {
 
 .ls-import-export-box {
 
-	form.ls-import-box td {
-		border-bottom: 1px solid #e3e3e3 !important;
-	}
-
-	td:first-child {
-		width: 130px;
-		text-align: right;
-	}
-
 	input, select {
 		width: 90%;
+	}
+
+	td {
+		padding: 8px !important;
 	}
 
 	form.ls-export-form {
@@ -194,7 +193,7 @@ div.ls-bulk-actions {
 
 		select {
 			width: 100%;
-			height: 136px;
+			height: 67px;
 			margin-bottom: 8px;
 			border-radius: 3px;
 			padding: 3px;
@@ -206,13 +205,12 @@ div.ls-bulk-actions {
 
 		tfoot td {
 			line-height: 30px;
-			padding-left: 0 !important;
 			&.available {
-				color: green;
+				color: #4b982f;
 			}
 
 			&.notavailable {
-				color: red;
+				color: #E14D43;
 			}
 		}
 	}
@@ -224,6 +222,10 @@ div.ls-bulk-actions {
 }
 
 .ls-news {
+
+	.filters span {
+		line-height: 40px;
+	}
 
 	.ls-version {
 		float: right;
@@ -239,6 +241,11 @@ div.ls-bulk-actions {
 
 #ls-permission-form {
 	margin-bottom: 15px !important;
+
+	td:first-child {
+		width: 130px;
+		text-align: right;
+	}
 }
 
 .ls-auto-update {
@@ -263,12 +270,12 @@ div.ls-bulk-actions {
 		margin: 0 2px 0 5px;
 
 		&.key {
-			width: 260px;
+			width: 97%;
 			font: normal normal normal 13px/15px Arial, sans-serif;
 		}
 	}
 
-	a {
+	.footer a {
 		float: right;
 	}
 
@@ -305,10 +312,6 @@ div.ls-bulk-actions {
 
 	&:hover figure {
 		color: red;
-	}
-
-	.ls-icon {
-		margin-top: 6px;
 	}
 
 	thead {

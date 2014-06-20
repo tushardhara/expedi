@@ -117,6 +117,14 @@ else
 }
 ?>
 <body <?php body_class(); ?> <?php if(is_home() && $pp_homepage_style == 'flow') { ?>data-gallery="flow"<?php } ?>>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=210900618924421&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<?php
 		//Check if disable right click
 		$pp_enable_right_click = get_option('pp_enable_right_click');

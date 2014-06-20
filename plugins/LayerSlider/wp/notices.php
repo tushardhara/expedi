@@ -58,7 +58,7 @@ function layerslider_compatibility_notice() { ?>
 <?php }
 
 function layerslider_dependency_notice() {
-	if(version_compare(PHP_VERSION, '5.0.0', '<') || !function_exists('mb_eregi') || !class_exists('DOMDocument')) {
+	if(version_compare(PHP_VERSION, '5.0.0', '<') || !class_exists('DOMDocument')) {
 	?>
 	<div class="layerslider_notice">
 		<img src="<?php echo LS_ROOT_URL.'/static/img/ls_80x80.png' ?>" alt="LayerSlider icon">

@@ -30,7 +30,7 @@ function layerslider_enqueue_content_res() {
 	}
 
 	if(file_exists($uploads['basedir'].'/layerslider.custom.css')) {
-		wp_enqueue_style('ls-user-css', $uploads['baseurl'].'/layerslider.custom.css', false, LS_PLUGIN_VERSION );
+		wp_enqueue_style('ls-user', $uploads['baseurl'].'/layerslider.custom.css', false, LS_PLUGIN_VERSION );
 	}
 
 	if(get_option('ls_conditional_script_loading', false) == false) {
@@ -51,8 +51,8 @@ function layerslider_enqueue_admin_res() {
 
 	// Use Gogole CDN version of jQuery
 	if(get_option('ls_use_custom_jquery', false)) {
-		//wp_deregister_script('jquery');
-		//wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3');
+		wp_deregister_script('jquery');
+		wp_enqueue_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3');
 	}
 
 	// Load LayerSlider-only resources
@@ -112,7 +112,7 @@ function layerslider_enqueue_admin_res() {
 		}
 
 		if(file_exists($uploads['basedir'].'/layerslider.custom.css')) {
-			wp_enqueue_style('ls-user-css', $uploads['baseurl'].'/layerslider.custom.css', false, LS_PLUGIN_VERSION );
+			wp_enqueue_style('ls-user', $uploads['baseurl'].'/layerslider.custom.css', false, LS_PLUGIN_VERSION );
 		}
 	}
 

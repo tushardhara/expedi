@@ -215,20 +215,31 @@ $lsDefaults = array(
 			'value' => '',
 			'name' => __('Background image', 'LayerSlider'),
 			'keys' => array('backgroundimage', 'globalBGImage'),
-			'desc' => __('Global background image of the slider. Slides with non-transparent background will cover this one.', 'LayerSlider')
+			'desc' => __('Global background image of the slider. Slides with non-transparent backgrounds will cover it. This image will not scale in responsive mode.', 'LayerSlider')
+		),
+
+		'sliderFadeInDuration' => array(
+			'value' => 350,
+			'name' => __('Initial fade duration', 'LayerSlider'),
+			'keys' => array('sliderfadeinduration', 'sliderFadeInDuration'),
+			'desc' => __('Change the duration of the initial fade animation when the page loads. Enter 0 to disable fading.', 'LayerSlider'),
+			'attrs' => array(
+				'min' => 0
+			)
 		),
 
 		// Some CSS values you can append on each slide individually
 		// to make some adjustments if needed.
 		'sliderStyle' => array(
 			'value' => 'margin-bottom: 0px;',
-			'name' => __('Slider style', 'LayerSlider'),
+			'name' => __('Slider CSS', 'LayerSlider'),
 			'keys' => array('sliderstyle', 'sliderStyle'),
 			'desc' => __('You can enter custom CSS to change some style properties on the slider wrapper element. More complex CSS should be applied with the Custom Styles Editor.', 'LayerSlider'),
 			'props' => array(
 				'meta' => true
 			)
 		),
+
 
 		// ================= //
 		// |   Navigation  | //
@@ -447,6 +458,7 @@ $lsDefaults = array(
 			)
 		),
 
+
 		// ============== //
 		// |  YourLogo  | //
 		// ============== //
@@ -481,9 +493,9 @@ $lsDefaults = array(
 		// Depends on: yourLogoLink
 		'yourLogoTarget' => array(
 			'value' => '_self',
-			'name' => __('Open link in new page', 'LayerSlider'),
+			'name' => __('Link target', 'LayerSlider'),
 			'keys' => array('yourlogotarget', 'yourLogoTarget'),
-			'desc' => __('Disabling this option will open the link in the current page.', 'LayerSlider'),
+			'desc' => '',
 			'options' => array(
 				'_self' => 'Open on the same page',
 				'_blank' => 'Open on new page',
@@ -626,9 +638,7 @@ $lsDefaults = array(
 			'name' => __('Set a slide thumbnail', 'LayerSlider'),
 			'keys' => 'thumbnail',
 			'tooltip' => __('The thumbnail image of this slide. Click on the image to open the WordPress Media Library to choose or upload an image. If you leave this field empty, the slide image will be used.', 'LayerSlider'),
-			'props' => array(
-				'meta' => true
-			)
+			'props' => array( 'meta' => true )
 		),
 
 		'thumbnailId' => array (
@@ -682,7 +692,7 @@ $lsDefaults = array(
 
 		'linkUrl' => array (
 			'value' => '',
-			'name' => __('URL', 'LayerSlider'),
+			'name' => __('Enter URL', 'LayerSlider'),
 			'keys' => array('layer_link', 'linkUrl'),
 			'tooltip' => __('If you want to link the whole slide, enter the URL of your link here.', 'LayerSlider'),
 			'props' => array(
@@ -695,7 +705,6 @@ $lsDefaults = array(
 			'value' => '_self',
 			'name' => __('Link Target', 'LayerSlider'),
 			'keys' => array('layer_link_target', 'linkTarget'),
-			'tooltip' => __('You can control here the link behaviour: _self means the linked page will open in the current tab/window, _blank will create a new tab/window.', 'LayerSlider'),
 			'options' => array(
 				'_self' => 'Open on the same page',
 				'_blank' => 'Open on new page',
@@ -1138,7 +1147,6 @@ $lsDefaults = array(
 			'value' => '_self',
 			'name' => __('URL target', 'LayerSlider'),
 			'keys' => 'target',
-			'tooltip' => __('You can control here the link behaviour: _self means the linked page will open in the current tab/window, _blank will open it in a new tab/window.', 'LayerSlider'),
 			'options' => array(
 				'_self' => 'Open on the same page',
 				'_blank' => 'Open on new page',

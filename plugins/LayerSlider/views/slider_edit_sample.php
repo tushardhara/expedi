@@ -1,11 +1,17 @@
+<?php 
+	if(!defined('LS_ROOT_FILE')) { 
+		header('HTTP/1.0 403 Forbidden');
+		exit;
+	}
+?>
 <div id="ls-sample">
 	<div class="ls-box ls-layer-box">
 		<input type="hidden" name="layerkey" value="0">
 		<table>
 			<thead class="ls-layer-options-thead">
 				<tr>
-					<td colspan="7">
-						<span id="ls-icon-layer-options"></span>
+					<td colspan="3">
+						<i class="dashicons dashicons-welcome-write-blog"></i>
 						<h4>
 							<?php _e('Slide Options', 'LayerSlider') ?>
 							<a href="#" class="duplicate ls-layer-duplicate"><?php _e('Duplicate this slide', 'LayerSlider') ?></a>
@@ -19,59 +25,65 @@
 				<input type="hidden" name="2d_transitions">
 				<input type="hidden" name="custom_3d_transitions">
 				<input type="hidden" name="custom_2d_transitions">
-				<tr class="black">
-					<td colspan="2" class="right">
-						<?php _e('Choose slide image', 'LayerSlider') ?><br>
-						<?php _e('or', 'LayerSlider') ?> <a href="#" class="ls-url-prompt"><?php _e('enter URL', 'LayerSlider') ?></a>
-					</td>
-					<td>
-						<input type="hidden" name="backgroundId">
-						<input type="hidden" name="background">
-						<div class="ls-image ls-upload" data-help="<?php echo $lsDefaults['slides']['image']['tooltip'] ?>">
-							<div><img src="<?php echo LS_ROOT_URL.'/static/img/not_set.png' ?>" alt=""></div>
-							<a href="#">x</a>
+				<tr>
+					<td valign="top">
+						<h3 class="subheader">Slide image &amp; thumbnail</h3>
+						<div class="inner slide-image">
+							<input type="hidden" name="backgroundId">
+							<input type="hidden" name="background">
+							<div class="ls-image ls-upload" data-help="<?php echo $lsDefaults['slides']['image']['tooltip'] ?>">
+								<div><img src="<?php echo LS_ROOT_URL.'/static/img/not_set.png' ?>" alt=""></div>
+								<a href="#" class="dashicons dashicons-dismiss"></a>
+							</div>
+							<?php _e('or', 'LayerSlider') ?> <a href="#" class="ls-url-prompt"><?php _e('enter URL', 'LayerSlider') ?></a> <br>
+							<?php _e('or', 'LayerSlider') ?> <a href="#" class="ls-post-image"><?php _e('use post image', 'LayerSlider') ?></a>
+						</div>
+						<div class="hsep"></div>
+						<div class="inner slide-image">
+							<input type="hidden" name="thumbnailId">
+							<input type="hidden" name="thumbnail">
+							<div class="ls-image ls-upload" data-help="<?php echo $lsDefaults['slides']['thumbnail']['tooltip'] ?>">
+								<div><img src="<?php echo LS_ROOT_URL.'/static/img/not_set.png' ?>" alt=""></div>
+								<a href="#" class="dashicons dashicons-dismiss"></a>
+							</div>
+							<?php _e('or', 'LayerSlider') ?> <a href="#" class="ls-url-prompt"><?php _e('enter URL', 'LayerSlider') ?></a>
 						</div>
 					</td>
-					<td class="right">
-						<?php _e('Choose thumbnail', 'LayerSlider') ?><br>
-						<?php _e('or', 'LayerSlider') ?> <a href="#" class="ls-url-prompt"><?php _e('enter URL', 'LayerSlider') ?></a>
-					</td>
-					<td>
-						<input type="hidden" name="thumbnailId">
-						<input type="hidden" name="thumbnail">
-						<div class="ls-image ls-upload" data-help="<?php echo $lsDefaults['slides']['thumbnail']['tooltip'] ?>">
-							<div><img src="<?php echo LS_ROOT_URL.'/static/img/not_set.png' ?>" alt=""></div>
-							<a href="#">x</a>
-						</div>
-					</td>
-					<td class="right"></td>
-					<td>
-						<span style="margin-left: 25px;"><?php echo $lsDefaults['slides']['delay']['name'] ?></span> <br>
+					<td valign="top" class="second">
+						<h3 class="subheader">Duration</h3>
 						<?php lsGetInput($lsDefaults['slides']['delay'], null, array('class' => 'layerprop')) ?> ms
+						<h3 class="subheader">
+							Transition
+						</h3>
+						<button class="button ls-select-transitions new" data-help="<?php _e('You can select your desired slide transitions by clicking on this button.', 'LayerSlider') ?>">Select transitions</button><br><br>
+						<?php echo $lsDefaults['slides']['timeshift']['name'] ?><br>
+						<?php lsGetInput($lsDefaults['slides']['timeshift'], null, array('class' => 'layerprop')) ?> ms
 					</td>
-				</tr>
-				<tr>
-					<td class="right"><?php _e('Slide transition', 'LayerSlider') ?></td>
-					<td></td>
-					<td><button class="button ls-select-transitions new" data-help="<?php _e('You can select your desired slide transitions by clicking on this button.', 'LayerSlider') ?>">Select transitions</button></td>
-					<td class="right"><?php echo $lsDefaults['slides']['timeshift']['name'] ?></td>
-					<td colspan="3"><?php lsGetInput($lsDefaults['slides']['timeshift'], null, array('class' => 'layerprop')) ?> ms</td>
-				</tr>
-				<tr>
-					<td class="right"><?php _e('Link this slide', 'LayerSlider'); ?></td>
-					<td class="right"><?php echo $lsDefaults['slides']['linkUrl']['name'] ?></td>
-					<td colspan="3"><?php lsGetInput($lsDefaults['slides']['linkUrl'], null, array('class' => 'ls-linkfield')) ?></td>
-					<td></td>
-					<td><?php lsGetSelect($lsDefaults['slides']['linkTarget'], null) ?></td>
-				</tr>
-				<tr>
-					<td class="right"><?php _e('Misc', 'LayerSlider') ?></td>
-					<td class="right"><?php echo $lsDefaults['slides']['ID']['name'] ?></td>
-					<td><?php lsGetInput($lsDefaults['slides']['ID'], null) ?></td>
-					<td class="right"><?php echo $lsDefaults['slides']['deeplink']['name'] ?></td>
-					<td><?php lsGetInput($lsDefaults['slides']['deeplink'], null) ?></td>
-					<td class="right"><?php _e('Hidden', 'LayerSlider') ?></td>
-					<td><input type="checkbox" name="skip" class="checkbox" data-help="<?php _e("If you don't want to use this slide in your front-page, but you want to keep it, you can hide it with this switch.", "LayerSlider") ?>"></td>
+					<td valign="top">
+						<h3 class="subheader">Linking</h3>
+						<div class="ls-slide-link">
+							<?php lsGetInput($lsDefaults['slides']['linkUrl'], null, array('placeholder' => $lsDefaults['slides']['linkUrl']['name'] )) ?>
+							<br> <?php lsGetSelect($lsDefaults['slides']['linkTarget'], null) ?>
+							<span> or <a href="#"><?php _e('use post URL', 'LayerSlider') ?></a></span>
+						</div>
+						<h3 class="subheader">Misc</h3>
+						<table class="noborder">
+							<tr>
+								<td>
+									<?php echo $lsDefaults['slides']['ID']['name'] ?>
+									<?php lsGetInput($lsDefaults['slides']['ID'], null) ?>
+								</td>
+								<td>
+									<?php echo $lsDefaults['slides']['deeplink']['name'] ?>
+									<?php lsGetInput($lsDefaults['slides']['deeplink'], null) ?>
+								</td>
+								<td>
+									<?php _e('Hidden', 'LayerSlider') ?>
+									<input type="checkbox" name="skip" class="checkbox" data-help="<?php _e("If you don't want to use this slide in your front-page, but you want to keep it, you can hide it with this switch.", "LayerSlider") ?>">
+								</td>
+							</tr>
+						</table>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -79,7 +91,7 @@
 			<thead>
 				<tr>
 					<td>
-						<span id="ls-icon-preview"></span>
+						<i class="dashicons dashicons-editor-video ls-preview-icon"></i>
 						<h4>
 							<?php _e('Preview', 'LayerSlider') ?>
 							<span class="ls-editor-slider-text">Size:</span>
@@ -107,7 +119,7 @@
 			<thead>
 				<tr>
 					<td>
-						<span id="ls-icon-sublayers"></span>
+						<div class="dashicons dashicons-images-alt ls-layers-icon"></div>
 						<h4><?php _e('Layers', 'LayerSlider') ?><a href="#" class="ls-tl-toggle">[ <?php _e('timeline view', 'LayerSlider') ?> ]</a></h4>
 					</td>
 				</tr>
@@ -143,19 +155,18 @@
 								<a href="#"><?php _e('Link', 'LayerSlider') ?></a>
 								<a href="#"><?php _e('Styles', 'LayerSlider') ?></a>
 								<a href="#"><?php _e('Attributes', 'LayerSlider') ?></a>
-								<a href="#" title="Remove this layer" class="remove">x</a>
+								<a href="#" title="<?php _e('Remove this layer', 'LayerSlider') ?>" class="dashicons dashicons-dismiss remove"></a>
 							</div>
 							<div class="ls-sublayer-pages">
 								<div class="ls-sublayer-page ls-sublayer-basic active">
 
-									<!-- Layer Media Type -->
 									<input type="hidden" name="media" value="img">
 									<div class="ls-layer-kind">
 										<ul>
-											<li data-section="img" class="active"><span class="ls-icon img"></span><?php _e('Image', 'LayerSlider') ?></li>
-											<li data-section="text"><span class="ls-icon text"></span><?php _e('Text', 'LayerSlider') ?></li>
-											<li data-section="html"><span class="ls-icon video"></span><?php _e('HTML / Video / Audio', 'LayerSlider') ?></li>
-											<li data-section="post"><span class="ls-icon post"></span><?php _e('Dynamic content from posts', 'LayerSlider') ?></li>
+											<li data-section="img" class="active"><span class="dashicons dashicons-format-image"></span><?php _e('Image', 'LayerSlider') ?></li>
+											<li data-section="text"><span class="dashicons dashicons-text"></span><?php _e('Text', 'LayerSlider') ?></li>
+											<li data-section="html"><span class="dashicons dashicons-video-alt3"></span><?php _e('HTML / Video / Audio', 'LayerSlider') ?></li>
+											<li data-section="post"><span class="dashicons dashicons-admin-post"></span><?php _e('Dynamic content from posts', 'LayerSlider') ?></li>
 										</ul>
 									</div>
 									<!-- End of Layer Media Type -->
@@ -163,29 +174,30 @@
 									<!-- Layer Element Type -->
 									<input type="hidden" name="type" value="p">
 									<ul class="ls-sublayer-element ls-hidden">
-										<li class="ls-type active" data-element="p"><span class="ls-icon-p"></span><br><?php _e('Paragraph', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h1"><span class="ls-icon-h1"></span><br><?php _e('H1', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h2"><span class="ls-icon-h2"></span><br><?php _e('H2', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h3"><span class="ls-icon-h3"></span><br><?php _e('H3', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h4"><span class="ls-icon-h4"></span><br><?php _e('H4', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h5"><span class="ls-icon-h5"></span><br><?php _e('H5', 'LayerSlider') ?></li>
-										<li class="ls-type" data-element="h6"><span class="ls-icon-h6"></span><br><?php _e('H6', 'LayerSlider') ?></li>
+										<li class="ls-type active" data-element="p"><?php _e('Paragraph', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h1"><?php _e('H1', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h2"><?php _e('H2', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h3"><?php _e('H3', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h4"><?php _e('H4', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h5"><?php _e('H5', 'LayerSlider') ?></li>
+										<li class="ls-type" data-element="h6"><?php _e('H6', 'LayerSlider') ?></li>
 									</ul>
 									<!-- End of Layer Element Type -->
 
 									<div class="ls-layer-sections">
 
 										<!-- Image Layer -->
-										<div class="ls-image-uploader clearfix">
+										<div class="ls-image-uploader slide-image clearfix">
 											<input type="hidden" name="imageId">
 											<input type="hidden" name="image">
 											<div class="ls-image ls-upload <?php echo $uploadClass ?>">
 												<div><img src="<?php echo LS_ROOT_URL.'/static/img/not_set.png' ?>" alt=""></div>
-												<a href="#">x</a>
+												<a href="#" class="dashicons dashicons-dismiss"></a>
 											</div>
 											<p>
 												<?php _e('Click on the image preview to open WordPress Media Library or', 'LayerSlider') ?>
-												<a href="#" class="ls-url-prompt"><?php _e('insert from URL', 'LayerSlider') ?></a>
+												<a href="#" class="ls-url-prompt"><?php _e('insert from URL', 'LayerSlider') ?></a> or
+												<a href="#" class="ls-post-image"><?php _e('use post image', 'LayerSlider') ?></a>.
 											</p>
 										</div>
 
@@ -221,6 +233,7 @@
 													<li><span>[categories]</span></li>
 													<li><span>[tags]</span></li>
 													<li><span>[comments]</span></li>
+													<li><span>[meta:&lt;fieldname&gt;]</span></li>
 												</ul>
 												<p>
 													<?php _e("Click on one or more post placeholders to insert them into your layer's content. Post placeholders are acting like shortcodes in WP, and they will be filled with the actual content from your posts.", "LayerSlider") ?><br>
@@ -328,15 +341,18 @@
 									<table>
 										<tbody>
 											<tr>
-												<td><?php echo $lsDefaults['layers']['linkURL']['name'] ?></td>
-												<td class="url"><?php lsGetInput($lsDefaults['layers']['linkURL'], null) ?></td>
-												<td><?php lsGetSelect($lsDefaults['layers']['linkTarget'], null) ?></td>
+												<td>
+													<div class="ls-slide-link">
+														<?php lsGetInput($lsDefaults['layers']['linkURL'], null, array('placeholder' => $lsDefaults['layers']['linkURL']['name'] )) ?>
+														<br> <?php lsGetSelect($lsDefaults['layers']['linkTarget'], null) ?>
+														<span> or <a href="#"><?php _e('use post URL', 'LayerSlider') ?></a></span>
+													</div>
+												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 								<div class="ls-sublayer-page ls-sublayer-style">
-									<?php $sublayer['styles'] = array(); ?>
 									<input type="hidden" name="styles">
 									<table>
 										<tbody>
@@ -393,10 +409,10 @@
 												<td class="right"><?php _e('Word-wrap', 'LayerSlider') ?></td>
 												<td colspan="3"><input type="checkbox" name="wordwrap" data-help="<?php _e('If you use custom sized layers, you have to enable this setting to wrap your text.', 'LayerSlider') ?>" class="checkbox"></td>
 											</tr>
+											<tr class="ls-separator"><td colspan="11"></td></tr>
 											<tr>
-												<td><?php _e('Custom style settings', 'LayerSlider') ?></td>
-												<td class="right"><?php _e('Custom styles', 'LayerSlider') ?></td>
-												<td colspan="7"><textarea rows="5" cols="50" name="style" class="style" data-help="<?php _e('If you want to set style settings other then above, you can use here any CSS codes. Please make sure to write valid markup.', 'LayerSlider') ?>"></textarea></td>
+												<td><?php _e('Custom CSS', 'LayerSlider') ?></td>
+												<td colspan="8"><textarea rows="5" cols="50" name="style" class="style" data-help="<?php _e('If you want to set style settings other then above, you can use here any CSS codes. Please make sure to write valid markup.', 'LayerSlider') ?>"></textarea></td>
 											</tr>
 										</tbody>
 									</table>
@@ -426,6 +442,8 @@
 				</tr>
 			</tbody>
 		</table>
-		<a href="#" class="ls-add-sublayer"><?php _e('Add new layer', 'LayerSlider') ?></a>
+		<a href="#" class="ls-add-sublayer">
+			<i class="dashicons dashicons-plus"></i> <?php _e('Add new layer', 'LayerSlider') ?>
+		</a>
 	</div>
 </div>

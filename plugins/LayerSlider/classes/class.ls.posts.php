@@ -11,20 +11,18 @@ class LS_Posts {
 	 * @param  array  	$args Array of WP_Query attributes
 	 * @return bool           Success of the query
 	 */
-	public function find($args = array()) {
+	public static function find($args = array()) {
 
-		if($this->posts = get_posts($args)) {
-			$this->post = $this->posts[0];
+		// Crate new instance
+		$instance = new self;
+
+		if($instance->posts = get_posts($args)) {
+			$instance->post = $instance->posts[0];
 		}
-		return $this;
+		return $instance;
 	}
 
-
-	public function getResults() {
-		return $this->posts;
-	}
-
-	public function getPostTypes() {
+	public static function getPostTypes() {
 
 		// Get post types
 		$postTypes = get_post_types();
@@ -168,6 +166,19 @@ class LS_Posts {
 		// Number of comments
 		if(stripos($str, '[comments]') !== false) {
 			$str = str_replace('[comments]', $this->post->comment_count, $str); }
+
+		// Meta
+		if(stripos($str, '[meta:') !== false) {
+			$matches = array();
+			preg_match_all('/\[meta:\w+\]/', $str, $matches);
+			
+			foreach($matches[0] as $match) {
+				$meta = str_replace('[meta:', '', $match);
+				$meta = str_replace(']', '', $meta);
+				$meta = get_post_meta($this->post->ID, $meta, true);
+				$str = str_replace($match, $meta, $str);
+			}
+		}
 
 		return $str;
 	}

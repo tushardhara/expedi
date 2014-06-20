@@ -1,5 +1,10 @@
 <?php
 
+	if(!defined('LS_ROOT_FILE')) { 
+		header('HTTP/1.0 403 Forbidden');
+		exit;
+	}
+
 	// Custom transitions file
 	$upload_dir = wp_upload_dir();
 	$custom_trs = $upload_dir['basedir'] . '/layerslider.custom.transitions.js';
@@ -172,7 +177,7 @@
 					<td colspan="4">
 						<ul class="ls-tr-tags"></ul>
 						<p class="ls-tr-add-property">
-							<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+							<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 							<select>
 								<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 								<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -248,7 +253,7 @@
 							</li>
 						</ul>
 						<p class="ls-tr-add-property">
-							<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+							<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 							<select>
 								<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 								<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -308,7 +313,7 @@
 					<td colspan="4">
 						<ul class="ls-tr-tags"></ul>
 						<p class="ls-tr-add-property">
-							<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+							<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 							<select>
 								<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 								<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -528,7 +533,7 @@
 								<?php endif; ?>
 							</select>
 							<?php _e('or', 'LayerSlider') ?>
-							<a href="#" class="ls-icon-tr-add ls-tr-builder-add-tr 3d"><?php _e('Add new', 'LayerSlider') ?></a>
+							<a href="#" class="ls-icon-tr-add ls-tr-builder-add-tr 3d"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 						</p>
 					</div>
 				</div>
@@ -547,7 +552,7 @@
 								<?php endif; ?>
 							</select>
 							<?php _e('or', 'LayerSlider') ?>
-							<a href="#" class="ls-icon-tr-add ls-tr-builder-add-tr 2d"><?php _e('Add new', 'LayerSlider') ?></a>
+							<a href="#" class="ls-icon-tr-add ls-tr-builder-add-tr 2d"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 						</p>
 					</div>
 				</div>
@@ -693,7 +698,7 @@
 											<?php endif; ?>
 										</ul>
 										<p class="ls-tr-add-property">
-											<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+											<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 											<select>
 												<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 												<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -774,7 +779,7 @@
 											<?php endif; ?>
 										</ul>
 										<p class="ls-tr-add-property">
-											<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+											<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 											<select>
 												<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 												<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -851,7 +856,7 @@
 											<?php endif; ?>
 										</ul>
 										<p class="ls-tr-add-property">
-											<a href="#" class="ls-icon-tr-add"><?php _e('Add new', 'LayerSlider') ?></a>
+											<a href="#" class="ls-icon-tr-add"><i class="dashicons dashicons-plus"></i><?php _e('Add new', 'LayerSlider') ?></a>
 											<select>
 												<option value="scale3d,0.8"><?php _e('Scale3D', 'LayerSlider') ?></option>
 												<option value="rotateX,90"><?php _e('RotateX', 'LayerSlider') ?></option>
@@ -1057,17 +1062,14 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		<div class="ls-box ls-publish">
-			<h3 class="header"><?php _e('Publish', 'LayerSlider') ?></h3>
-			<div class="inner">
-				<?php if(is_writable($upload_dir['basedir'])) : ?>
-				<button class="button-primary"><?php _e('Save changes', 'LayerSlider') ?></button>
-				<p class="ls-saving-warning"></p>
-				<div class="clear"></div>
-				<?php else : ?>
-				<?php _e('Before you can save your changes, you need to make writeable your "/wp-content/uploads" folder. See the <a href="http://codex.wordpress.org/Changing_File_Permissions" target="_blank">Codex</a>', 'LayerSlider') ?>
-				<?php endif; ?>
-			</div>
+
+		<div class="ls-publish">
+			<?php if(is_writable($upload_dir['basedir'])) : ?>
+			<button class="button button-primary button-hero"><?php _e('Save changes', 'LayerSlider') ?></button>
+			<p class="ls-saving-warning"></p>
+			<?php else : ?>
+			<?php _e('Before you can save your changes, you need to make writeable your "/wp-content/uploads" folder. See the <a href="http://codex.wordpress.org/Changing_File_Permissions" target="_blank">Codex</a>', 'LayerSlider') ?>
+			<?php endif; ?>
 		</div>
 	</form>
 </div>
