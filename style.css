@@ -44,6 +44,7 @@ a img
 #page_content_wrapper p {
 	padding-top:0.5em;
 	padding-bottom:0.5em;
+	font-size: 15px;
 }
 
 html, body {
@@ -1630,8 +1631,8 @@ input[type=text], input[type=password]
 	font-size: 13px;
 	font-family: Helvetica, Arial,Verdana,sans-serif;
 	margin: 0;
-	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
+	background: #EFEFEF;
+	color: #000;
 	border: 0;
 	border: 1px solid #888;
 }
@@ -3232,7 +3233,7 @@ body.single-attachment p.attachment {
 
 body>.site-loader {
     position: fixed;
-    background: white;
+    background: #000;
     top: 0;
     left: 0;
     bottom: 0;
@@ -3245,4 +3246,11 @@ body>.site-loader {
 
 body>.site-loader.pe-disabled {
     opacity: 0
+}
+.gform_wrapper form {
+background: rgba(255, 255, 255, 0.64);
+padding: 10px;
+border: 2px solid #00afef;
+text-shadow: none!important;
+color: black;
 }
