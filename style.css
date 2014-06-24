@@ -842,7 +842,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 {
 	width: 100%;
 	font-size: 80px;
-	color: #fff200;
+	color: #00afef;
 	font-weight: 100;
 	text-align: center;
 	margin-top: -25px;
@@ -1744,6 +1744,7 @@ input[type=submit]:hover, input[type=button]:hover, a.button:hover, .button:hove
 	-o-transition: all 0.7s ease-out;
 	transition: all 0.7s ease-out;
 	opacity: 0.8;
+	background:#000;
 }
 
 input[type=submit].primary, input[type=button].primary, input[type=button].primary:hover
@@ -1964,7 +1965,7 @@ input[type=submit].center, input[type=button].center, a.button.center
 
 #page_content_wrapper .sidebar .content .sidebar_widget li h2.widgettitle, h2.widgettitle
 {
-	font-size: 13px;
+	font-size: 16px;
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0px;
