@@ -2,7 +2,7 @@
 Theme Name: Expedi
 Theme URI: http://365webb.se/exp/
 Description: Premium Template for Photography Portfolio
-Version: 1.4.2
+Version: 1.4.10
 Tags: gray, black, white, fixed-width, custom-header, custom-background, threaded-comments, translation-ready, editor-style, custom-menu
 Author: Galax Media.se
 Author URI: http://galaxmedia.se/
@@ -1568,6 +1568,16 @@ ul.children .comment:first-child
 	top: 0px;
 	cursor: pointer;
 }
+#page_content_wrapper .inner .sidebar_content.full_width .uparrow.down.fixed{
+	position: fixed;
+	left: 50%;
+	top: 0px;
+	cursor: pointer;
+	-webkit-transform: translate(-530px, 109px);
+	-moz-transform: translate(-530px, 109px);
+	transform: translate(-530px, 109px);
+}
+
 #page_content_wrapper .inner .sidebar_content.full_width .uparrow.up{
 	background: url(images/uparrow.png) 0px 0px no-repeat;
 	width: 50px;
@@ -1576,6 +1586,15 @@ ul.children .comment:first-child
 	left: -50px;
 	top: 0px;
 	cursor: pointer;
+}
+#page_content_wrapper .inner .sidebar_content.full_width .uparrow.up.fixed{
+	position: fixed;
+	left: 50%;
+	top: 83%;
+	cursor: pointer;
+	-webkit-transform: translate(-530px, 0px);
+-moz-transform: translate(-530px, 0px);
+transform: translate(-530px, 0px);
 }
 #page_content_wrapper .inner .sidebar_content .page-menu-nav{
 	width: 100%;
@@ -2420,7 +2439,17 @@ ul.flickr li
 #page_caption {
 margin-bottom:10px;
 }
-
+.fixed#page_caption{
+	position: fixed;
+	width: 920px;
+	padding: 22px 20px 20px 20px;
+	z-index: 1;
+	left: 50%;
+	top: 109px;
+	-webkit-transform: translate(-50%, 0%);
+	-moz-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
+}
 #page_content_wrapper .inner .sidebar_content#page_caption
 {
 	text-align: center;
@@ -3253,4 +3282,11 @@ padding: 10px;
 border: 2px solid #00afef;
 text-shadow: none!important;
 color: black;
+}
+
+.content_read{
+	padding-top: 0px;
+}
+.content_read.fixed{
+	padding-top: 60px;
 }

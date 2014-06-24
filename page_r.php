@@ -193,7 +193,7 @@ if(!empty($page_audio))
                         }
                     ?>
                 <?php } ?>
-            <div id="page_caption">
+            <div id="page_caption" class="fixed">
                 <h1 class="cufon"><?php the_title(); ?></h1>
             </div>
         	<div class="sidebar_content <?php echo $page_class; ?>">
