@@ -127,6 +127,10 @@ $page_postmetas =
 			array(	"off" => "off", 
 					"on" => "on", 
 				)),
+		array("section" => "Page Title fixed On/Off", "id" => "page_title_option_id", "type" => "select", "title" => "Page Title fixed On/Off", "description" => "ON or OFF fixed page title", "items" => 
+			array(	"off" => "off", 
+					"on" => "on", 
+				)),
 		array("section" => "Youtube Video ID", "id" => "page_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		
 		array("section" => "Vimeo Video ID", "id" => "page_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),
