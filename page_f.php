@@ -61,6 +61,12 @@ if(empty($page_title_option_id))
 {
     $page_title_option_id = 'off';
 }
+$page_title_visible_option_id = get_post_meta($current_page_id, 'page_title_visible_option_id',true);
+
+if(empty($page_title_visible_option_id))
+{
+    $page_title_visible_option_id = 'off';
+}
 get_header(); 
 ?>
 
@@ -184,9 +190,11 @@ if(!empty($page_audio))
                             }
                         ?>
                     <?php } ?>
+                   <?php if($page_title_visible_option_id == 'on') { ?> 
         	       <div id="page_caption" class="<?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
                         <h1 class="cufon"><?php the_title(); ?></h1>
                     </div>
+                    <?php } ?>
                     <div class="content_read <?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
         			     <?php the_content(); ?>
                     </div>

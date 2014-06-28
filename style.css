@@ -2,7 +2,7 @@
 Theme Name: Expedi
 Theme URI: http://365webb.se/exp/
 Description: Premium Template for Photography Portfolio
-Version: 1.4.26
+Version: 1.4.27
 Tags: gray, black, white, fixed-width, custom-header, custom-background, threaded-comments, translation-ready, editor-style, custom-menu
 Author: Galax Media.se
 Author URI: http://galaxmedia.se/
@@ -800,6 +800,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
     -moz-transition: top 500ms ease-out;
     -o-transition: top 500ms ease-out;
     transition: top 500ms ease-out;
+    z-index: 2;
 }
 .page_content_wrapper.down
 {

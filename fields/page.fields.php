@@ -102,6 +102,10 @@ $page_postmetas =
 		/*
 			Begin Page custom fields
 		*/
+		array("section" => "Page Title On/Off", "id" => "page_title_visible_option_id", "type" => "select", "title" => "Page Title On/Off", "description" => "ON or OFF page title visibility", "items" => 
+			array(	"off" => "off", 
+					"on" => "on", 
+				)),
 		array("section" => "Content Position Style", "id" => "page_content_position_style", "type" => "select", "title" => "Content Position Style", "description" => "Select Content Position options for this page", "items" => 
 			array(	"up" => "up", 
 					"down" => "down", 
