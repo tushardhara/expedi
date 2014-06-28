@@ -42,6 +42,20 @@ if ( function_exists('register_sidebar') )
 if ( function_exists('register_sidebar') )
     register_sidebar(array('name' => 'Footer Sidebar'));
 
+if ( function_exists('register_sidebar') )
+    register_sidebar(array('name' => 'Footer Sidebar Top First 2/3'));
+
+if ( function_exists('register_sidebar') )
+    register_sidebar(array('name' => 'Footer Sidebar Top Second 1/3'));
+
+if ( function_exists('register_sidebar') )
+    register_sidebar(array('name' => 'Footer Sidebar Bottom First 1/3'));
+
+if ( function_exists('register_sidebar') )
+    register_sidebar(array('name' => 'Footer Sidebar Bottom Second 1/3'));
+
+if ( function_exists('register_sidebar') )
+    register_sidebar(array('name' => 'Footer Sidebar Bottom Third 1/3'));
 
 //Register dynamic sidebar
 $dynamic_sidebar = get_option('pp_sidebar');

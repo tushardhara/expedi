@@ -2,7 +2,7 @@
 Theme Name: Expedi
 Theme URI: http://365webb.se/exp/
 Description: Premium Template for Photography Portfolio
-Version: 1.4.19
+Version: 1.4.26
 Tags: gray, black, white, fixed-width, custom-header, custom-background, threaded-comments, translation-ready, editor-style, custom-menu
 Author: Galax Media.se
 Author URI: http://galaxmedia.se/
@@ -637,6 +637,8 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	margin: 0;
 }
 
+
+
 #footer ul.sidebar_widget li ul
 {
 	list-style: none;
@@ -688,6 +690,55 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	clear: both;
 	float: left;
 	margin-bottom: 30px;
+}
+
+#footer .sidebar_widget  .sidebar_widget_top  div  li,#footer .sidebar_widget  .sidebar_widget_bottom  div  li
+{
+	list-style: none;
+}
+#footer .sidebar_widget ul
+{
+	list-style: none;
+	margin-left: 0;
+}
+#footer .sidebar_widget .sidebar_widget_top  div li h2.widgettitle,#footer .sidebar_widget .sidebar_widget_bottom  div li h2.widgettitle
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin: 0;
+	border-bottom: 1px solid #fff;
+}
+#footer .sidebar_widget > .sidebar_widget_top,#footer .sidebar_widget > .sidebar_widget_bottom
+{
+	width: 100%;
+	clear: both;
+	float: left;
+	margin-bottom: 30px;
+}
+#footer .sidebar_widget > .sidebar_widget_top > .left{
+	width: 65%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_top > .right{
+	width: 33%;
+	float: left;
+	margin-right: 0px;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .left{
+	width: 31%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .mid{
+	width: 31%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .right{
+	width: 33%;
+	float: left;
+	margin-right: 0px;
 }
 
 #footer ul.sidebar_widget li ul.posts.blog li img

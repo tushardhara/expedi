@@ -674,6 +674,38 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	margin-bottom: 30px;
 }
 
+#footer .sidebar_widget > .sidebar_widget_top,#footer .sidebar_widget > .sidebar_widget_bottom
+{
+	width: 100%;
+	clear: both;
+	float: left;
+	margin-bottom: 30px;
+}
+#footer .sidebar_widget > .sidebar_widget_top > .left{
+	width: 65%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_top > .right{
+	width: 33%;
+	float: left;
+	margin-right: 0px;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .left{
+	width: 31%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .mid{
+	width: 31%;
+	float: left;
+	margin-right: 2%;
+}
+#footer .sidebar_widget > .sidebar_widget_bottom > .right{
+	width: 33%;
+	float: left;
+	margin-right: 0px;
+}
 #footer ul.sidebar_widget li ul.posts.blog li img
 {
 	width: 50px;

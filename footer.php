@@ -43,10 +43,33 @@
     	
 ?>
 <div id="footer">
+<?php if($pp_footer_style <=4 ) { ?>
 <ul class="sidebar_widget <?php echo $footer_class; ?>">
     <?php dynamic_sidebar('Footer Sidebar'); ?>
 </ul>
-
+<?php } else { ?>
+    <div class="sidebar_widget">
+        <div class="sidebar_widget_top">
+            <div class="left">
+                <?php dynamic_sidebar('Footer Sidebar Top First 2/3'); ?>
+            </div>
+            <div class="right">
+                <?php dynamic_sidebar('Footer Sidebar Top Second 1/3'); ?>
+            </div>
+        </div>
+        <div class="sidebar_widget_bottom">
+            <div class="left">
+                <?php dynamic_sidebar('Footer Sidebar Bottom First 1/3'); ?>
+            </div>
+            <div class="mid">
+                <?php dynamic_sidebar('Footer Sidebar Bottom Second 1/3'); ?>
+            </div>
+            <div class="right">
+                <?php dynamic_sidebar('Footer Sidebar Bottom Third 1/3'); ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
 <br class="clear"/>
 <div class="footer_bar">
     <?php
