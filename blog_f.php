@@ -203,9 +203,9 @@ if (have_posts()) : while (have_posts()) : the_post();
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="post_wrapper">
-		<div class="post_header">
+		<!--<div class="post_header">
 	    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-	    </div>
+	    </div>-->
 	     <br class="clear"/>
 		<?php
 	    	if(!empty($image_thumb))
@@ -231,11 +231,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 	    
 	    <div class="post_header">
 	    	<div class="post_detail">
-	    	<?php echo _e( 'Posted by', THEMEDOMAIN ); ?> <?php echo get_the_author(); ?> on <?php echo get_the_time('d M Y'); ?> /
+	    	<?php echo _e( 'Av', THEMEDOMAIN ); ?> <?php echo get_the_author(); ?> on <?php echo get_the_time('d M Y'); ?> /
 	    		<a href="<?php the_permalink(); ?>"><?php comments_number('0 Comment', '1 Comment', '% Comments'); ?></a>
 	    	</div>
 	    	<br class="clear"/>
-	    	<!--h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5-->
+	    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
 	    </div>
 	    <br class="clear"/><hr/><br class="clear"/>
 	    
@@ -252,7 +252,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	    ?>
 	    
 	    		<br/><br/>
-	    		<a class="button" href="<?php the_permalink(); ?>"><?php echo _e( 'Read more', THEMEDOMAIN ); ?> →</a>
+	    		<a class="button" href="<?php the_permalink(); ?>"><?php echo _e( 'Läs mer', THEMEDOMAIN ); ?> →</a>
 	    
 	    <?php
 	    	}

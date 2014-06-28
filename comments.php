@@ -9,7 +9,7 @@ if ( post_password_required() ) { ?>
 //Display Comments
 if( have_comments() ) : ?> 
 					
-<h5 class="cufon"><?php comments_number('No comment', 'Comment', '% Comments'); ?></h5><br/><br/>
+<h5 class="cufon"><?php comments_number('Inga kommentarer', 'Comment', '% Comments'); ?></h5><br/><br/>
 
 <?php wp_list_comments( array('callback' => 'pp_comment', 'avatar_size' => '40') ); ?>
 

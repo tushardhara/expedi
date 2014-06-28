@@ -198,5 +198,13 @@ if(!empty($page_audio))
     </div>
     <!-- End main content -->
 </div>
-
+<?php if($page_title_option_id == 'on') { ?>
+<script type="text/javascript">
+    (function($) {
+        $("body").addClass('hide-scroll');
+        $(".page_content_wrapper").height( $(window).height() - $(".top_bar").height());
+        $(".page_content_wrapper").css("overflow","auto");
+    })(jQuery);
+</script>
+<?php } ?>
 <?php get_footer(); ?>

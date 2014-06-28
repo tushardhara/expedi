@@ -142,9 +142,9 @@ if (have_posts()) : while (have_posts()) : the_post();
 						
 <!-- Begin each blog post -->
 <div class="post_wrapper">
-    <div class="post_header">
+    <!--<div class="post_header">
         <h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-    </div>
+    </div>-->
     
     <br class="clear"/>
 	<?php
@@ -175,7 +175,7 @@ if (have_posts()) : while (have_posts()) : the_post();
     		<a href=""><?php comments_number('0 Comment', '1 Comment', '% Comments'); ?></a>
     	</div>
     	<br class="clear"/>
-    	<!--h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5-->
+    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
     </div>
     
     <br class="clear"/>

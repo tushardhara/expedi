@@ -1,7 +1,7 @@
 <?php if ('open' == $post->comment_status) : ?>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-		<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p><br/>
+		<p>Du måste vara <a href="<?php echo wp_login_url( get_permalink() ); ?>">inloggad</a> för att kommentera.</p><br/>
 	<?php else : ?>
 
 					<!-- Start of form --> 
@@ -10,7 +10,7 @@
 
 			
 			
-						<h5 class="cufon"><?php _e( 'Leave A Reply', THEMEDOMAIN ); ?></h5>
+						<h5 class="cufon"><?php _e( 'Kommentera', THEMEDOMAIN ); ?></h5>
 						
 						<?php if ( is_user_logged_in() ) : ?>
 
@@ -19,27 +19,27 @@
 			<?php else : ?>
 						<br/>
 						<p> 
-							<input class="round m input" title="<?php _e( 'Name', THEMEDOMAIN ); ?>*" name="author" type="text" id="author" value="" tabindex="1" style="width:50%" /> 
+							<input class="round m input" title="<?php _e( 'Namn', THEMEDOMAIN ); ?>*" name="author" type="text" id="author" value="" tabindex="1" style="width:50%" /> 
 						</p> 
 						<br/>
 						<p> 
-							<input class="round m input" title="<?php _e( 'Email', THEMEDOMAIN ); ?>*" name="email" type="text" id="email" value="" tabindex="2" style="width:50%" /> 
+							<input class="round m input" title="<?php _e( 'E-post', THEMEDOMAIN ); ?>*" name="email" type="text" id="email" value="" tabindex="2" style="width:50%" /> 
 						</p> 
 						<br/>
 						<p> 
-							<input class="round m input" title="<?php _e( 'Website', THEMEDOMAIN ); ?>" name="url" type="text" id="url" value="" tabindex="3" style="width:50%" /> 
+							<input class="round m input" title="<?php _e( 'Hemsida', THEMEDOMAIN ); ?>" name="url" type="text" id="url" value="" tabindex="3" style="width:50%" /> 
 						</p> 
 						<br/>
 
 			<?php endif; ?>
 						
 						<p>  
-							<textarea name="comment" title="<?php _e( 'Message', THEMEDOMAIN ); ?>*" cols="40" rows="3" id="comment" tabindex="4" style="width:96%"></textarea> 
+							<textarea name="comment" title="<?php _e( 'Meddelande', THEMEDOMAIN ); ?>*" cols="40" rows="3" id="comment" tabindex="4" style="width:96%"></textarea> 
 						</p> 
 						<br /> 
 						<p> 
 							<input name="submit" type="submit" id="submit" value="<?php _e( 'Submit', THEMEDOMAIN ); ?>" tabindex="5" />&nbsp;
-							<?php cancel_comment_reply_link("Cancel Reply"); ?> 
+							<?php cancel_comment_reply_link("Avbryt"); ?> 
 						</p> 
 						<?php comment_id_fields(); ?> 
 						<?php do_action('comment_form', $post->ID); ?>

@@ -133,7 +133,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	    ?>
 	    
 	    		<br/><br/>
-	    		<a class="button" href="<?php the_permalink(); ?>"><?php echo _e( 'Read more', THEMEDOMAIN ); ?> →</a>
+	    		<a class="button" href="<?php the_permalink(); ?>"><?php echo _e( 'Läs mer', THEMEDOMAIN ); ?> →</a>
 	    
 	    <?php
 	    	}
