@@ -82,7 +82,7 @@ get_header();
 </div>
 <?php $page_vimeo_id = get_post_meta($current_page_id, 'page_vimeo_id', true); ?>
 <div id="vimeo_bg">
-	<iframe frameborder="0" src="http://player.vimeo.com/video/<?php echo $page_vimeo_id; ?>?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=0" webkitallowfullscreen="" allowfullscreen=""></iframe>
+	<iframe id="i_frame" class="vimeo" frameborder="0" src="http://player.vimeo.com/video/<?php echo $page_vimeo_id; ?>?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff&amp;autoplay=true" width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
 <?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
