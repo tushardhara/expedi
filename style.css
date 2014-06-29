@@ -3331,7 +3331,7 @@ body>.site-loader {
 body>.site-loader.pe-disabled {
     opacity: 0
 }
-.gform_wrapper form {
+#gform_wrapper_1 {
 background: transparent;
 padding: 10px;
 border: 1px solid #838383;
@@ -3368,4 +3368,7 @@ border:none!important;
 }
 .ihover-container li:nth-child(3n+0) {
 margin-right:0px!important;
+}
+li.gfield {
+border-bottom:none!important;
 }
