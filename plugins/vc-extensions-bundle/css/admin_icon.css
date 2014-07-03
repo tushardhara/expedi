@@ -1,0 +1,45 @@
+.wpb-content-layouts .wpb-layout-element-button .icon-wpb-vc_extension_cq {
+    background-image: url(../img/icon.png)!important;
+}
+
+.wpb_cq_vc_extension.wpb_content_element > .wpb_element_wrapper {
+	background-image: url(../img/icon.png)!important;
+}
+
+.wpb-content-layouts .wpb-layout-element-button .icon-wpb-vc_modal_cq {
+    background-image: url(../img/icon_d.png)!important;
+}
+.wpb-content-layouts .wpb-layout-element-button .icon-wpb-vc_notify_cq {
+    background-image: url(../img/icon_s.png)!important;
+}
+.wpb-content-layouts .wpb-layout-element-button .icon-wpb-vc_gallery_cq {
+    background-image: url(../img/icon_m.png)!important;
+}
+
+
+.wpb_cq_vc_modal.wpb_content_element > .wpb_element_wrapper {
+  background-image: url(../img/icon_d.png)!important;
+}
+.wpb_cq_vc_notify.wpb_content_element > .wpb_element_wrapper {
+  background-image: url(../img/icon_s.png)!important;
+}
+.wpb_cq_vc_gallery.wpb_content_element > .wpb_element_wrapper {
+  background-image: url(../img/icon_m.png)!important;
+}
+
+.wpb-content-layouts .wpb-layout-element-button .icon-wpb-vc_animationfw_cq {
+    background-image: url(../img/icon_f.png)!important;
+}
+
+.wpb_cq_vc_animationfw.wpb_content_element > .wpb_element_wrapper {
+  background-image: url(../img/icon_f.png)!important;
+}
+
+
+
+.wpb-textarea_raw_html, .textarea_raw_html {
+  font-family: Arial!important;
+  color: #333!important;
+  font-size: 13px!important;
+  height: 90px;
+}
