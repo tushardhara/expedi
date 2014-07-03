@@ -2,7 +2,7 @@
 Theme Name: Expedi
 Theme URI: http://365webb.se/exp/
 Description: Premium Template for Photography Portfolio
-Version: 1.4.31
+Version: 1.4.32
 Tags: gray, black, white, fixed-width, custom-header, custom-background, threaded-comments, translation-ready, editor-style, custom-menu
 Author: Galax Media.se
 Author URI: http://galaxmedia.se/
@@ -23,6 +23,10 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	font-size:100%;
 	font-family:inherit;
 	vertical-align:baseline;
+}
+html {
+overflow: -moz-scrollbars-vertical; 
+overflow-y: scroll;
 }
 body 
 {
@@ -180,9 +184,11 @@ h6
 h1, h2, h3, h4, h5, h6
 {
 	color: #fff;
-	font-family: 'helvetica neue', Helvetica, Arial, sans-serif;
-	font-weight: 500;
-	letter-spacing: -1px;
+	font-family:"futura-pt",sans-serif;
+	font-weight: 700;
+	letter-spacing: normal;
+	text-transform: uppercase;
+	line-height: normal;
 }
 
 div.home_header
@@ -498,10 +504,12 @@ blockquote h3
 #menu_wrapper .nav ul li a, #menu_wrapper div .nav li a
 {
 	display: inline-block;
+	font-family:'futura-pt',sans-serif;
+	font-weight:300;
 	padding: 0;
 	margin: 0;
 	color: #fff;
-	font-size: 15px;
+	font-size: 16px;
 	text-shadow: 1px 1px 1px #000;
 	padding: 27px 18px 15px 18px;
 }
@@ -580,7 +588,7 @@ blockquote h3
 	display: block;
 	border-top: 0;
 	font-weight: normal;
-	font-size: 12px;
+	font-size: 15px;
 	border-left: 0;
 	border-right: 0;
 	padding: 8px 20px 8px 20px;
@@ -795,7 +803,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	padding-top: 10px;
 	/*text-shadow: 1px 1px 1px #000;*/
 	position: relative;
-	top: calc(100% - 280px);
+	top: calc(100% - 238px);
 	-webkit-transition: top 500ms ease-out;
     -moz-transition: top 500ms ease-out;
     -o-transition: top 500ms ease-out;
@@ -815,10 +823,10 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	top: 20px !important;
 }
 .page_content_wrapper.down.no-half{
-	top: calc(100% - 198px) !important;
+	top: calc(100% - 164px) !important;
 }
 .page_content_wrapper.down.no-half.no-menu{
-	top: calc(100% - 198px) !important;
+	top: calc(100% - 164px) !important;
 }
 #content_wrapper .inner
 {
@@ -1799,6 +1807,7 @@ input[type=submit]:hover, input[type=button]:hover, a.button:hover, .button:hove
 	transition: all 0.7s ease-out;
 	opacity: 0.8;
 	background:#000;
+	border-color: #CFCFCF;
 }
 
 input[type=submit].primary, input[type=button].primary, input[type=button].primary:hover
@@ -2013,7 +2022,7 @@ input[type=submit].center, input[type=button].center, a.button.center
 
 #page_content_wrapper .sidebar .content .sidebar_widget li
 {
-	margin: 30px 0 50px 0;
+	margin: 10px 0 10px 0;
 	padding: 0;
 }
 
@@ -2581,7 +2590,7 @@ margin-bottom:10px;
 #page_content_wrapper .sidebar .content .tagcloud, #page_content_wrapper .sidebar .content .textwidget
 {
 	margin-top: 10px;
-	border-top: 1px solid #fff;
+	/*border-top: 1px solid #fff;*/
 	padding: 15px 0 15px 0;
 }
 
@@ -3353,13 +3362,13 @@ color: white;
 	padding-top: 60px;
 }
 
-body.hide-scroll{
+/*body.hide-scroll{
 	overflow: hidden;
 }
 
 ::-webkit-scrollbar { 
     display: none; 
-}
+}*/
 .fb-like-box {
 border:1px solid #838383;
 }
@@ -3393,4 +3402,135 @@ iframe.vimeo {
 	width: 100% !important;
 	height: auto !important;
 	overflow: hidden !important;
+}
+.vc_btn_sandy_brown {
+background-color:#F66E31!important;
+}
+.vc_btn_sandy_brown {
+color: #ffffff !important;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+.vc_btn_sandy_brown:hover {
+opacity:0.7;
+}
+.vc_btn_sky {
+background-color: #5aa1e3!important;
+color: #ffffff !important;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+border:1px solid #5aa1e3!important;
+}
+.vc_btn_sky:hover {
+background-color: #000!important;
+color: #f7f7f7 !important;
+border:1px solid #CFCFCF!important;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+.vc_btn_square {
+border-radius: 0!important;
+}
+.vc_btn_lg {
+padding: 9px 20px!important;
+font-size: 15px!important;
+line-height: 1.5!important;
+border-radius: 5px;
+}
+.vc_btn {
+display: inline-block;
+margin-bottom: 0;
+font-weight: bold!important;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+white-space: nowrap;
+padding: 10px 20px;
+font-size: 15px;
+border-radius:0;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+text-decoration: none !important;
+line-height: 1.5;
+border-radius: 5px;
+}
+.ctabutton {
+width: 100%;
+box-sizing:border-box;
+}
+glx-page-heading {
+margin-bottom: 5px!important;
+}
+body #gform_wrapper_2 .gform_body .gform_fields .gfield textarea {
+height:100px;
+}
+body #gform_wrapper_2 .gform_footer {
+padding:0;
+margin:0;
+}
+body #gform_wrapper_5 .gform_footer input[type=submit] {
+webkit-transition: none; 
+-moz-transition: none;
+-o-transition: none;
+ transition: none; 
+}
+body #gform_wrapper_5 .gform_footer input[type=submit]:hover {
+webkit-transition: none; 
+-moz-transition: none;
+-o-transition: none;
+ transition: none; 
+}
+body #gform_wrapper_5 .gform_body .gform_fields .gfield input[type=text] {
+width:98%;
+}
+body #gform_wrapper_5 .gform_footer {
+padding:5px 0 5px 0;
+margin:3px 0 3px 0;
+}
+.btn {
+border:1px solid;
+border-radius: 0!important;
+font-size: 15px!important;
+font-weight: bold!important;
+padding: 9px 20px!important;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+.btn:hover {
+background:black!important;
+border:1px solid #CFCFCF!important;
+-webkit-transition: all 0.5s;
+transition: all 0.5s;
+}
+.glx-news ul {
+margin-left:0!important;
+}
+.glx-news h2 {
+font-size: 25px;
+}
+.glx-news .post-thumb {
+float:left;
+margin-right:5px;
+}
+.glx-separator {
+margin-bottom: 0!important;
+}
+.glx-no-margins {
+margin-bottom:0!important;
+}
+span.overlay-show {
+font-size:15px;
+-webkit-transition: color .2s linear, background .1s linear;
+-moz-transition: color .2s linear, background .1s linear;
+-ms-transition: color .2s linear, background .1s linear;
+-o-transition: color .2s linear, background .1s linear;
+transition: color .2s linear, background .1s linear;
+}
+span.overlay-show:hover {
+color:#00afef!important;
 }

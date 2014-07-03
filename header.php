@@ -17,7 +17,8 @@ if(session_id() == '') {
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<script type="text/javascript" src="//use.typekit.net/wch5prp.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <title><?php wp_title('&lsaquo;', true, 'right'); ?><?php bloginfo('name'); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
