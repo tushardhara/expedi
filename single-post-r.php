@@ -146,7 +146,6 @@ if (have_posts()) : while (have_posts()) : the_post();
         <h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
     </div>-->
     
-    <br class="clear"/>
 	<?php
     	if(!empty($image_thumb))
     	{

@@ -54,6 +54,18 @@ $page_slider_id = get_post_meta($current_page_id,'page_slider_id',true);
 if(empty($page_slider_id)){
     $page_slider_id = 'Gallery Slider';
 }
+$page_title_option_id = get_post_meta($current_page_id, 'page_title_option_id',true);
+
+if(empty($page_title_option_id))
+{
+    $page_title_option_id = 'off';
+}
+$page_title_visible_option_id = get_post_meta($current_page_id, 'page_title_visible_option_id',true);
+
+if(empty($page_title_visible_option_id))
+{
+    $page_title_visible_option_id = 'off';
+}
 get_header(); 
 ?>
 
@@ -211,7 +223,6 @@ if (have_posts()) : while (have_posts()) : the_post();
 		<!--<div class="post_header">
 	    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
 	    </div>-->
-	     <br class="clear"/>
 		<?php
 	    	if(!empty($image_thumb))
 	    	{

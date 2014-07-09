@@ -2988,6 +2988,11 @@
 
 .ih-item.square.effect6 {
   overflow: hidden;
+  text-align: center;
+  margin: auto;
+  width: 292px;
+  /*height: 183px;*/
+  position: relative;
 }
 .ih-item.square.effect6.colored .info {
   background: #1a4a72;
@@ -2997,6 +3002,11 @@
   background: rgba(12, 34, 52, 0.6);
 }
 .ih-item.square.effect6 .img {
+  display:block;
+  /*width: 290px;
+  height: 183px;*/
+}
+.ih-item.square.effect6 .img img{
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
@@ -3007,6 +3017,10 @@
   transform: scale(1);
 }
 .ih-item.square.effect6 .info {
+  position: absolute;    
+  width: 100%;
+  height: 100%;
+  top:0;
   background: #333333;
   background: rgba(0, 0, 0, 0.6);
   visibility: hidden;
@@ -3038,7 +3052,7 @@
   -moz-transition: all 0.35s 0.1s linear;
   transition: all 0.35s 0.1s linear;
 }
-.ih-item.square.effect6 a:hover .img {
+.ih-item.square.effect6 a:hover .img img{
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);

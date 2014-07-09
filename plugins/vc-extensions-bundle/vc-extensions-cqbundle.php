@@ -12,6 +12,7 @@ require_once( 'dagallery/vc-extensions-dagallery.php' );
 require_once( 'appmockup/vc-extensions-appmockup.php' );
 require_once( 'depthmodal/vc-extensions-depthmodal.php' );
 require_once( 'ihover/vc-extensions-ihover.php' );
+require_once( 'idavid/vc-extensions-idavid.php' );
 require_once( 'profilecard/vc-extensions-profilecard.php' );
 require_once( 'testimonialcarousel/vc-extensions-testimonialcarousel.php' );
 require_once( 'stackgallery/vc-extensions-stackgallery.php' );
@@ -31,6 +32,7 @@ if (!class_exists('VC_Extensions_CQBundle')) {
               if(!function_exists('cq_vc_appmockup_func')) $vc_extensions_appmockup = new VC_Extensions_AppMockup();
               if(!function_exists('cq_vc_depthmodal_func'))$vc_extensions_depthmodal = new VC_Extensions_DepthModal();
               if(!function_exists('cq_vc_ihover_func')) $vc_extensions_ihover = new VC_Extensions_iHover();
+              if(!function_exists('cq_vc_idavid_func')) $vc_extensions_idavid = new VC_Extensions_iDavid();
               if(!function_exists('cq_vc_profilecard_func')) $vc_extensions_profilecard = new VC_Extensions_ProfileCard();
               if(!function_exists('cq_vc_testimonialcarousel_func')) $vc_extensions_testimonialcarousel = new VC_Extensions_TestimonialCarousel();
               if(!function_exists('cq_vc_stackgallery_func')) $vc_extensions_stackgallery = new VC_Extensions_StackGallery();
