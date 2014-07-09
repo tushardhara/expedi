@@ -81,6 +81,14 @@ get_header();
 <br class="clear"/>
 </div>
 <?php $page_vimeo_id = get_post_meta($current_page_id, 'page_vimeo_id', true); ?>
+<div class="page_control">
+    <a id="page_minimize" href="#">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_minus.png" alt=""/>
+    </a>
+    <a id="page_maximize" href="#">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_plus.png" alt=""/>
+    </a>
+</div>
 <div id="vimeo_bg">
 	<iframe id="i_frame" class="vimeo" frameborder="0" src="http://player.vimeo.com/video/<?php echo $page_vimeo_id; ?>?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff&amp;autoplay=true" width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>

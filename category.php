@@ -40,6 +40,14 @@ wp_enqueue_script("script-static-bg", get_stylesheet_directory_uri()."/templates
 ?>
 <br class="clear"/>
 </div>
+<div class="page_control">
+    <a id="page_minimize" href="#">
+    	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_minus.png" alt=""/>
+    </a>
+    <a id="page_maximize" href="#">
+    	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_plus.png" alt=""/>
+    </a>
+</div>
 <?php $pp_blog_ex_button_style=($pp_blog_ex_button_layout=='off' ? 'no-half' : '');?>
 <div id="page_content_wrapper" class="page_content_wrapper <?php echo $pp_blog_ex_button_style;?> <?php echo $pp_blog_up_down_layout;?> <?php echo 'no-menu';?>">
     

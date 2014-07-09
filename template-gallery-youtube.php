@@ -91,6 +91,12 @@ get_header();
     <a class="tubular-pause" href="#">
     	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_pause.png" alt=""/>
     </a>
+    <a id="page_minimize" href="#">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_minus.png" alt=""/>
+    </a>
+    <a id="page_maximize" href="#">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon_plus.png" alt=""/>
+    </a>
 </div>
 
 <?php
@@ -104,6 +110,7 @@ wp_enqueue_script("script-youtube-bg", get_stylesheet_directory_uri()."/template
 //Setup Google Analyric Code
 get_template_part ("google-analytic");
 ?>
+
 <?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
 <?php $page_menu_style=($page_menu_option=='off' ? 'no-menu' : '');?>
 <div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">

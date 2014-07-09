@@ -180,6 +180,11 @@ if(!empty($page_audio))
                             }
                         ?>
                     <?php } ?>
+                    <?php if($page_title_visible_option_id == 'on') { ?> 
+        	       <div id="page_caption" class="<?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+                        <h1 class="cufon"><?php the_title(); ?></h1>
+                    </div>
+                    <?php } ?>
 					
 <?php
 
@@ -214,9 +219,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	    ?>
 	    
 	    <div class="post_img">
-	    	<a href="<?php the_permalink(); ?>">
 	    		<img src="<?php echo $small_image_url[0]; ?>" alt="" class=""/>
-	    	</a>
 	    </div>
 	    <br class="clear"/>
 	    
@@ -232,13 +235,38 @@ if (have_posts()) : while (have_posts()) : the_post();
 	    <div class="post_header">
 	    	<div class="post_detail">
 	    	<?php echo _e( 'Av', THEMEDOMAIN ); ?> <?php echo get_the_author(); ?> on <?php echo get_the_time('d M Y'); ?> /
-	    		<a href="<?php the_permalink(); ?>"><?php comments_number('0 Comment', '1 Comment', '% Comments'); ?></a>
+	    		<?php comments_number('0 Comment', '1 Comment', '% Comments'); ?>
 	    	</div>
 	    	<br class="clear"/>
-	    	<h5 class="cufon"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+	    	<h5 class="cufon"><?php the_title(); ?></h5>
 	    </div>
 	    <br class="clear"/><hr/><br class="clear"/>
-	    
+	    <?php
+        //Get social media sharing option
+        $pp_blog_social_sharing = get_option('pp_blog_social_sharing');
+        
+        if(!empty($pp_blog_social_sharing))
+        {
+            ?>
+            <!-- AddThis Button BEGIN -->
+            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+            <a class="addthis_button_preferred_1" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            <a class="addthis_button_preferred_2" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            <a class="addthis_button_preferred_3" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            <a class="addthis_button_preferred_4" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            <a class="addthis_button_compact" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            <a class="addthis_counter addthis_bubble_style" addthis:url="<?php the_permalink(); ?>" addthis:title="<?php the_title(); ?>"></a>
+            </div>
+            <script type="text/javascript">
+                var addthis_config = addthis_config||{};
+                addthis_config.data_track_addressbar = false;
+            </script>
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ppulpipatnan"></script>
+            <!-- AddThis Button END -->
+            <br class="clear"/>
+            <?php
+                }
+            ?>
 	    <?php
 	    	$pp_blog_display_full = get_option('pp_blog_display_full');
 	    	
