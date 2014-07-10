@@ -3483,6 +3483,7 @@ transition: all 0.5s;
 .ctabutton {
 width: 100%;
 box-sizing:border-box;
+border-radius:0!important;
 }
 glx-page-heading {
 margin-bottom: 5px!important;
@@ -3504,6 +3505,9 @@ color: white;
 }
 body #gform_wrapper_2 .gform_body .gform_fields .gfield textarea {
 height:100px;
+}
+body #gform_wrapper_3 .gform_body .gform_fields .gfield textarea {
+height:162px;
 }
 body #gform_wrapper_2 .gform_footer {
 padding:0;
@@ -3564,7 +3568,7 @@ font-size:15px;
 transition: color .2s linear, background .1s linear;
 }
 span.overlay-show:hover {
-color:#00afef!important;
+color:#858585!important;
 }
 .wpb_widgetised_column ul {
 margin:0!important;
@@ -3587,7 +3591,7 @@ margin-bottom:0!important;
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 10px;
 }
  
 ::-webkit-scrollbar-track {
@@ -3595,5 +3599,9 @@ margin-bottom:0!important;
 }
  
 ::-webkit-scrollbar-thumb {
-    background: #5aa1e3;
+    background: #3D3D3D;
+}
+.ult-overlay-close {
+width: 14px!important;
+height: 14px!important;
 }
