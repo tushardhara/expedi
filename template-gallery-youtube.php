@@ -79,6 +79,13 @@ if(empty($page_title_visible_option_id))
     $page_title_visible_option_id = 'off';
 }
 
+$page_videoQuality = get_post_meta($current_page_id, 'page_videoQuality',true);
+
+if(empty($page_videoQuality))
+{
+    $page_videoQuality = 'default';
+}
+
 get_header();
 
 ?>
@@ -105,7 +112,7 @@ wp_enqueue_script("jquery.tubular.1.0", get_stylesheet_directory_uri()."/js/jque
 
 //Get content gallery
 $page_youtube_id = get_post_meta($current_page_id, 'page_youtube_id', true);
-wp_enqueue_script("script-youtube-bg", get_stylesheet_directory_uri()."/templates/script-youtube-bg.php?youtube_id=".$page_youtube_id, false, THEMEVERSION, true);
+wp_enqueue_script("script-youtube-bg", get_stylesheet_directory_uri()."/templates/script-youtube-bg.php?youtube_id=".$page_youtube_id."&videoQuality=".$page_videoQuality, false, THEMEVERSION, true);
 
 //Setup Google Analyric Code
 get_template_part ("google-analytic");

@@ -28,7 +28,8 @@
         volumeUpClass: 'tubular-volume-up',
         volumeDownClass: 'tubular-volume-down',
         increaseVolumeBy: 10,
-        start: 0
+        start: 0,
+        videoQuality: 'default',
     };
 
     // methods
@@ -69,11 +70,16 @@
         window.onPlayerReady = function(e) {
             resize();
             if (options.mute) e.target.mute();
+            e.target.setPlaybackQuality(options.videoQuality);
+            //console.log(options.videoQuality);
             e.target.seekTo(options.start);
             e.target.playVideo();
         }
 
         window.onPlayerStateChange = function(state) {
+            if (e.data == YT.PlayerState.BUFFERING) {
+                e.target.setPlaybackQuality(options.videoQuality);
+            }
             if (state.data === 0 && options.repeat) { // video ended and repeat option is set true
                 player.seekTo(options.start); // restart
             }

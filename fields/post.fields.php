@@ -90,7 +90,14 @@ $postmetas =
 					"on" => "on", 
 				)),
 		array("section" => "Youtube Video ID", "id" => "post_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
-		
+		array("section" => "Youtube Video Quality", "id" => "post_videoQuality", "type" => "select", "title" => "Youtube Video Quality", "description" => "Youtube Video Quality", "items" => 
+			array(	"small" => "small", 
+					"medium" => "medium",
+					"large" => "large",
+					"hd720" => "hd720",
+					"hd1080" => "hd1080",
+					"default" => "default", 
+				)),
 		array("section" => "Vimeo Video ID", "id" => "post_vimeo_id", "type" => "text", "title" => "Vimeo Video ID", "description" => "If you select \"Fullscreen Vimeo Video\" page template. Enter Vimeo Video ID here ex. 58363796"),
 		
 		array("section" => "Select Sidebar", "id" => "post_sidebar", "type" => "select", "title" => "Page Sidebar", "description" => "Select this page's sidebar to display", "items" => $theme_sidebar),
