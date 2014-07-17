@@ -2578,13 +2578,13 @@ margin-bottom:10px;
 .tubular-pause
 {
 	position: fixed;
-	bottom: 77px;
-	left: 20px;
+	bottom: 30px;
+	left: 114px;
 }
 .tubular-play {
 	position: fixed;
-	left: 20px;
-	bottom: 127px;
+	left: 66px;
+	bottom: 30px;
 }
 
 .page_control_static
@@ -3533,10 +3533,33 @@ padding:5px 0 5px 0;
 margin:3px 0 3px 0;
 }
 body #gform_wrapper_6 .gform_footer input[type=submit] {
-float:right; 
+float:right;
+margin-right:0px; 
 }
 .gform_wrapper textarea {
 font-size:14px!important;
+}
+.gform_footer {
+padding:0!important;
+margin-top:15px!important;
+}
+.gform_wrapper .gfield_error .gfield_label {
+color: #D81C1C!important;
+}
+.gform_wrapper div.validation_error {
+color: #D81C1C!important;
+margin-bottom: 1em!important;
+}
+.gform_wrapper .gfield_required {
+color: #D81C1C!important;
+}
+.gform_wrapper .validation_message {
+color: #D81C1C!important;
+}
+.gform_wrapper li.gfield.gfield_error, .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+background:none!important;
+padding-top:0!important;
+border-top:none!important;
 }
 /*GFORM END*/
 .glx-news ul{
@@ -3604,4 +3627,17 @@ margin-bottom:0!important;
 .ult-overlay-close {
 width: 14px!important;
 height: 14px!important;
+}
+.ult_modal-header {
+border-bottom:none!important;
+}
+.ult-overlay {
+background: rgba(180, 180, 180, 0.9)!important;
+}
+.ult_modal-content {
+-webkit-border-radius: 0px!important;
+-moz-border-radius: 0px!important;
+-o-border-radius: 0px!important;
+-ms-border-radius:0px!important;
+border-radius: 0px!important;
 }

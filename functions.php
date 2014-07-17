@@ -1128,3 +1128,9 @@ if (isset($_GET['activated']) && $_GET['activated']){
     wp_redirect(admin_url("themes.php?page=functions.php&activate=true"));
 }
 ?>
+<?php
+add_filter("gform_ajax_spinner_url", "spinner_url", 10, 2);
+function spinner_url($image_src, $form){
+    return "http://365webb.se/exp/wp-content/uploads/2014/07/ajax-loader-3.gif";
+}
+?>
