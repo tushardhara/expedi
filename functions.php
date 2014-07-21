@@ -1068,9 +1068,7 @@ $i++;
 
 	<div id="pp_panel_<?php echo strtolower($value['name']); ?>" class="rm_section">
 	<div class="rm_title">
-	<h3><img
-		src="<?php echo get_stylesheet_directory_uri(); ?>/functions/images/trans.png"
-		class="inactive" alt="""><?php echo $value['name']; ?></h3>
+	<h3><img src="<?php echo get_stylesheet_directory_uri(); ?>/functions/images/trans.png" class="inactive" alt=""><?php echo $value['name']; ?></h3>
 	<span class="submit"><input class="button-primary" name="save<?php echo $i; ?>" type="submit"
 		value="Save changes" /> </span>
 	<div class="clearfix"></div>
@@ -1131,6 +1129,7 @@ if (isset($_GET['activated']) && $_GET['activated']){
 <?php
 add_filter("gform_ajax_spinner_url", "spinner_url", 10, 2);
 function spinner_url($image_src, $form){
-    return "http://365webb.se/exp/wp-content/uploads/2014/07/ajax-loader-3.gif";
+	$upload_dir = wp_upload_dir();
+    return $upload_dir['baseurl']."/2014/07/ajax-loader-3.gif";
 }
 ?>

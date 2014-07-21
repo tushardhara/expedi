@@ -597,7 +597,7 @@ $j(document).ready(function(){
     		$j(this).removeClass('show').addClass('hide');
     	}
     });
-    $j("body").on("click", "a[href]", hashHandler);
+    /*$j("body").on("click", "a[href]", hashHandler);
     hashHandler();
     overlay = $j("body").find("> .site-loader");
     if (overlay.length > 0) {
@@ -624,6 +624,6 @@ $j(document).ready(function(){
 	            scroller.animate({scrollTop: section.offset().top - (fixed ? stickyH : 0) + 4}, 500, scrollEnd)
 	        }
 	    }
-	}
+	}*/
 });
 

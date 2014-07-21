@@ -638,6 +638,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 {
 	margin-top: 15px;
 	margin-bottom: 15px;
+	font-family:'Open Sans', arial, sans-serif;
 }
 
 #footer ul.sidebar_widget
@@ -718,6 +719,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	margin: 0;
 	border-bottom: 1px solid #fff;
 	font-weight:300;
+	font-family:'Open Sans', arial, sans-serif;
 }
 #footer .sidebar_widget > .sidebar_widget_top,#footer .sidebar_widget > .sidebar_widget_bottom
 {
@@ -2047,6 +2049,7 @@ input[type=submit].center, input[type=button].center, a.button.center
 	display: block;
 	text-align: left;
 	color: #fff;
+	font-family:'Open Sans', arial, sans-serif;
 }
 
 #page_content_wrapper .sidebar .content .sidebar_widget li:first-child
@@ -3348,7 +3351,7 @@ body.single-attachment p.attachment {
 	color: #ff0000;
 }
 
-body>.site-loader {
+/*body>.site-loader {
     position: fixed;
     background: #000;
     top: 0;
@@ -3363,7 +3366,7 @@ body>.site-loader {
 
 body>.site-loader.pe-disabled {
     opacity: 0
-}
+}*/
 
 .content_read{
 	padding-top: 0px;
@@ -3470,7 +3473,7 @@ border:1px solid;
 border-radius: 0!important;
 font-size: 15px!important;
 font-weight: bold!important;
-padding: 9px 20px!important;
+padding: 12px 20px!important;
 -webkit-transition: all 0.5s;
 transition: all 0.5s;
 }
@@ -3484,6 +3487,13 @@ transition: all 0.5s;
 width: 100%;
 box-sizing:border-box;
 border-radius:0!important;
+}
+.redbook {
+width:100%;
+cursor:pointer;
+background:#e90000;
+border-color:#e90000;
+color:#ffffff;
 }
 glx-page-heading {
 margin-bottom: 5px!important;
@@ -3566,7 +3576,9 @@ border-top:none!important;
 margin-left:0!important;
 }
 .glx-news h2 {
-font-size: 20px;
+font-size: 15px;
+font-family: 'Open Sans';
+font-weight: bold;
 }
 .glx-news .post-thumb {
 float:left;
@@ -3640,4 +3652,10 @@ background: rgba(180, 180, 180, 0.9)!important;
 -o-border-radius: 0px!important;
 -ms-border-radius:0px!important;
 border-radius: 0px!important;
+}
+.askbooking p{
+padding:0!important;
+}
+.askbooking {
+margin:0!important;
 }
