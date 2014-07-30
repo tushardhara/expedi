@@ -17,7 +17,7 @@ $link_setting = empty($settings[0]) ? '' : $settings[0];
    
 </div>
 <div class="entry-content">
-	 <?php echo 'Date : '.get_the_time('Y-m-d', $post->ID); ?>
+	 <?php echo 'Date : '.get_the_time('Y-m-d', $post->id); ?>
 </div>
 <?php elseif($block === 'link'): ?>
 <a href="<?php echo $post->link ?>" class="vc_read_more"

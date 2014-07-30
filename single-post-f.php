@@ -24,23 +24,11 @@ $current_page_id = $post->ID;
 $bg_style = get_post_meta($current_page_id, 'post_bg_style', true);
 
 
-$page_ex_option = get_post_meta($current_page_id, 'post_ex_option_id', true);
-
-if(empty($page_ex_option))
-{
-    $page_ex_option = 'off';
-}
-
 $page_content_position = get_post_meta($current_page_id, 'post_content_position_style', true);
 
 if(empty($page_content_position))
 {
     $page_content_position = 'up';
-}
-$page_slider_id = get_post_meta($current_page_id,'post_slider_id',true);
-
-if(empty($page_slider_id)){
-    $page_slider_id = 'Gallery Slider';
 }
 
 if(empty($bg_style) OR $bg_style == 'Static Image')
@@ -60,25 +48,9 @@ if(empty($bg_style) OR $bg_style == 'Static Image')
 } // end if static image
 else
 {
-    if($page_slider_id == 'Gallery Slider') {
-    $post_bg_gallery_id = get_post_meta($current_page_id, 'post_bg_gallery_id', true);
-    wp_enqueue_script("script-supersized-gallery", get_stylesheet_directory_uri()."/templates/script-supersized-gallery.php?gallery_id=".$post_bg_gallery_id, false, THEMEVERSION, true);
-?>
-
-<div id="thumb-tray" class="load-item">
-    <div id="thumb-back"></div>
-    <div id="thumb-forward"></div>
-    <a id="prevslide" class="load-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow_back.png" alt=""/></a>
-    <a id="nextslide" class="load-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow_forward.png" alt=""/></a>
-</div>
-
-<input type="hidden" id="pp_image_path" name="pp_image_path" value="<?php echo get_stylesheet_directory_uri(); ?>/images/"/>
-
-<?php
-    }else{
         $page_bg_ls_gallery_id = get_post_meta($current_page_id, 'post_bg_ls_gallery_id', true);
         if(function_exists ('layerslider')){layerslider($page_bg_ls_gallery_id);}
-    }
+
 }
 ?>
 
@@ -110,16 +82,12 @@ else
 <?php
 }
 ?>
-<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
-<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> no-menu">
+<div id="page_content_wrapper" class="page_content_wrapper on-half <?php echo $page_content_position;?> no-menu">
     
     <div class="inner">
 
     	<!-- Begin main content -->
     	<div class="inner_wrapper">
-    	   <?php if($page_ex_option == 'on'){ ?>
-                <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
-            <?php } ?>
 	    	<div class="sidebar_content full_width transparentbg">
 					<div class="uparrow <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
 <?php

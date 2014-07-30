@@ -29,12 +29,6 @@ if(!empty($portfolio_password))
 		exit;
 	}
 }
-$page_ex_option = get_post_meta($current_page_id, 'page_ex_option_id', true);
-
-if(empty($page_ex_option))
-{
-    $page_ex_option = 'off';
-}
 
 $page_content_position = get_post_meta($current_page_id, 'page_content_position_style', true);
 
@@ -56,18 +50,7 @@ if(empty($page_menu_name))
 {
     $page_menu_name = '';
 }
-$page_slider_id = get_post_meta($current_page_id,'page_slider_id',true);
 
-if(empty($page_slider_id)){
-    $page_slider_id = 'Gallery Slider';
-}
-
-$page_title_option_id = get_post_meta($current_page_id, 'page_title_option_id',true);
-
-if(empty($page_title_option_id))
-{
-    $page_title_option_id = 'off';
-}
 $page_title_visible_option_id = get_post_meta($current_page_id, 'page_title_visible_option_id',true);
 
 if(empty($page_title_visible_option_id))
@@ -93,9 +76,8 @@ get_header();
 	<iframe id="i_frame" class="vimeo" frameborder="0" src="http://player.vimeo.com/video/<?php echo $page_vimeo_id; ?>?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff&amp;autoplay=true" width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
-<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
 <?php $page_menu_style=($page_menu_option=='off' ? 'no-menu' : '');?>
-<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
+<div id="page_content_wrapper" class="page_content_wrapper no-half <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
 
     <div class="inner">
     
@@ -105,11 +87,8 @@ get_header();
     	
         
         <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>		
-        	<?php if($page_ex_option == 'on'){ ?>
-                <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
-            <?php } ?>
         	<div class="sidebar_content full_width transparentbg">
-                   <div class="uparrow <?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?> <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
+                   <div class="uparrow <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
                     <?php if($page_menu_option == 'on') {?>
                         <?php 
                             if($page_menu_name != ''){
@@ -125,11 +104,11 @@ get_header();
                         ?>
                     <?php } ?>
                    <?php if($page_title_visible_option_id == 'on') { ?> 
-        	       <div id="page_caption" class="<?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+        	       <div id="page_caption">
                         <h1 class="cufon"><?php the_title(); ?></h1>
                     </div>
                     <?php } ?>
-                    <div class="content_read <?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+                    <div class="content_read">
         			     <?php the_content(); ?>
                     </div>
         			

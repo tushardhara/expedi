@@ -33,13 +33,6 @@ if(isset($page->ID))
     $current_page_id = $page->ID;
 }
 
-$page_ex_option = get_post_meta($current_page_id, 'page_ex_option_id', true);
-
-if(empty($page_ex_option))
-{
-    $page_ex_option = 'off';
-}
-
 $page_content_position = get_post_meta($current_page_id, 'page_content_position_style', true);
 
 if(empty($page_content_position))
@@ -60,18 +53,7 @@ if(empty($page_menu_name))
 {
     $page_menu_name = '';
 }
-$page_slider_id = get_post_meta($current_page_id,'page_slider_id',true);
 
-if(empty($page_slider_id)){
-    $page_slider_id = 'Gallery Slider';
-}
-
-$page_title_option_id = get_post_meta($current_page_id, 'page_title_option_id',true);
-
-if(empty($page_title_option_id))
-{
-    $page_title_option_id = 'off';
-}
 $page_title_visible_option_id = get_post_meta($current_page_id, 'page_title_visible_option_id',true);
 
 if(empty($page_title_visible_option_id))
@@ -118,9 +100,8 @@ wp_enqueue_script("script-youtube-bg", get_stylesheet_directory_uri()."/template
 get_template_part ("google-analytic");
 ?>
 
-<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
 <?php $page_menu_style=($page_menu_option=='off' ? 'no-menu' : '');?>
-<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
+<div id="page_content_wrapper" class="page_content_wrapper no-half <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
 
     <div class="inner">
     
@@ -130,11 +111,8 @@ get_template_part ("google-analytic");
     	
         
         <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>		
-        	<?php if($page_ex_option == 'on'){ ?>
-                <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
-            <?php } ?>
         	<div class="sidebar_content full_width transparentbg">
-                   <div class="uparrow <?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?> <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
+                   <div class="uparrow <?php echo $posi=($page_content_position == 'up' ? 'down' : 'up');?>"></div>
                     <?php if($page_menu_option == 'on') {?>
                         <?php 
                             if($page_menu_name != ''){
@@ -150,11 +128,11 @@ get_template_part ("google-analytic");
                         ?>
                     <?php } ?>
                    <?php if($page_title_visible_option_id == 'on') { ?> 
-        	       <div id="page_caption" class="<?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+        	       <div id="page_caption">
                         <h1 class="cufon"><?php the_title(); ?></h1>
                     </div>
                     <?php } ?>
-                    <div class="content_read <?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+                    <div class="content_read">
         			     <?php the_content(); ?>
                     </div>
         			
@@ -165,13 +143,5 @@ get_template_part ("google-analytic");
     </div>
     <!-- End main content -->
 </div>
-<?php if($page_title_option_id == 'on') { ?>
-<script type="text/javascript">
-    (function($) {
-        $("body").addClass('hide-scroll');
-        $(".page_content_wrapper").height( $(window).height() - $(".top_bar").height());
-        $(".page_content_wrapper").css("overflow","auto");
-    })(jQuery);
-</script>
-<?php } ?>
+
 <?php get_footer(); ?>

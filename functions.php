@@ -1099,7 +1099,7 @@ add_action('admin_menu', 'pp_add_admin');
 include (get_template_directory() . "/plugins/shortcode_generator.php");
 
 // Setup Gallery Plugin
-include (get_template_directory() . "/plugins/shiba-media-library/shiba-media-library.php");
+//include (get_template_directory() . "/plugins/shiba-media-library/shiba-media-library.php");
 
 // Setup Twitter API
 include (get_template_directory() . "/plugins/twitteroauth.php");
