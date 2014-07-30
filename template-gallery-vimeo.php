@@ -100,6 +100,7 @@ get_header();
                                         'items_wrap'      => '%3$s',
                                     ) 
                                 );
+                                echo "<div class='clear'></div>";
                             }
                         ?>
                     <?php } ?>

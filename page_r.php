@@ -161,6 +161,7 @@ if(!empty($page_audio))
                                     'items_wrap'      => '%3$s',
                                 ) 
                             );
+                            echo "<div class='clear'></div>";
                         }
                     ?>
                 <?php } ?>

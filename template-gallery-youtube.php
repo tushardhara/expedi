@@ -124,6 +124,7 @@ get_template_part ("google-analytic");
                                         'items_wrap'      => '%3$s',
                                     ) 
                                 );
+                                echo "<div class='clear'></div>";
                             }
                         ?>
                     <?php } ?>
