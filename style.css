@@ -1,7 +1,7 @@
 /*
 Theme Name: Expedi
 Theme URI: http://365webb.se/exp/
-Description: Premium Template for Photography Portfolio
+Description: Theme for Expeditionsresor
 Version: 1.4.35
 Tags: gray, black, white, fixed-width, custom-header, custom-background, threaded-comments, translation-ready, editor-style, custom-menu
 Author: Galax Media.se
@@ -3579,14 +3579,18 @@ margin-left:0!important;
 font-size: 15px;
 font-family: 'Open Sans';
 font-weight: bold;
+margin-bottom:5px;
 }
 .glx-news .post-thumb {
 float:left;
-margin-right:5px;
+margin-right:15px;
 margin-top: 5px;
 }
 .glx-news li {
 margin-bottom:10px!important;
+}
+.glx-news .entry-content {
+margin-bottom:5px!important;
 }
 .glx-separator {
 margin-bottom: 0!important;
@@ -3658,4 +3662,15 @@ padding:0!important;
 }
 .askbooking {
 margin:0!important;
+}
+iframe.logga-in {
+width:100%;
+height:auto;
+min-height:500px;
+}
+iframe.logga-in body {
+background:transparent;
+}
+iframe.logga-in input#tb_getemail {
+background:black;
 }

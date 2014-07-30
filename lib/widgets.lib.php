@@ -407,3 +407,81 @@ register_widget('Custom_Map');
 **/
 
 ?>
+
+<?php
+
+class Custom_Widget_Archives extends WP_Widget {
+
+	function Custom_Widget_Archives() {
+		$widget_ops = array('classname' => 'Custom_Widget_Archives', 'description' => __( 'A Custome archive of your site&#8217;s Posts.') );
+		$this->WP_Widget('Custom_Widget_Archives', __('Custome Archives'), $widget_ops);
+	}
+
+	function widget( $args, $instance ) {
+		extract($args);
+		$c = ! empty( $instance['count'] ) ? '1' : '0';
+		$d = ! empty( $instance['dropdown'] ) ? '1' : '0';
+		$t = empty( $instance['type'] ) ? 'yearly' : $instance['type'];
+		$title = apply_filters('widget_title', empty($instance['title']) ? __('Archives') : $instance['title'], $instance, $this->id_base);
+
+		echo $before_widget;
+		if ( $title )
+			echo $before_title . $title . $after_title;
+
+		if ( $d ) {
+?>
+		<select name="archive-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'> <option value=""><?php echo esc_attr(__('Select Month')); ?></option> <?php wp_get_archives(apply_filters('widget_archives_dropdown_args', array('type' => $t, 'format' => 'option', 'show_post_count' => $c))); ?> </select>
+<?php
+		} else {
+?>
+		<ul>
+		<?php wp_get_archives(apply_filters('widget_archives_args', array('type' => $t, 'show_post_count' => $c))); ?>
+		</ul>
+<?php
+		}
+
+		echo $after_widget;
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		//$new_instance = wp_parse_args( (array) $new_instance, array( 'title' => '', 'count' => 0, 'dropdown' => '') );
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['count'] = $new_instance['count'] ? 1 : 0;
+		$instance['dropdown'] = $new_instance['dropdown'] ? 1 : 0;
+		$instance['type'] = strip_tags( $new_instance['type'] );
+
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'count' => 0, 'dropdown' => '','type'=>'yearly') );
+		$title = strip_tags($instance['title']);
+		$type = esc_attr( $instance['type'] );
+		$count = $instance['count'] ? 'checked="checked"' : '';
+		$dropdown = $instance['dropdown'] ? 'checked="checked"' : '';
+?>
+		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+		<p>
+			<input class="checkbox" type="checkbox" <?php echo $dropdown; ?> id="<?php echo $this->get_field_id('dropdown'); ?>" name="<?php echo $this->get_field_name('dropdown'); ?>" /> <label for="<?php echo $this->get_field_id('dropdown'); ?>"><?php _e('Display as dropdown'); ?></label>
+			<br/>
+			<input class="checkbox" type="checkbox" <?php echo $count; ?> id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" /> <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Show post counts'); ?></label>
+			<br/>
+			<label for="<?php echo $this->get_field_id('type'); ?>">Archive Type: Choose Archive type<br/></label> 
+			<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="yearly" <?php checked( 'yearly', $type ); ?>>yearly<br>
+        	<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="monthly" <?php checked( 'monthly', $type ); ?>>monthly<br>
+        	<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="daily" <?php checked( 'daily', $type ); ?>>daily<br>
+        	<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="weekly" <?php checked( 'weekly', $type ); ?>>weekly<br>
+        	<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="postbypost" <?php checked( 'postbypost', $type ); ?>>postbypost<br>
+        	<input class="widefat" type="radio" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" value="alpha" <?php checked( 'alpha', $type ); ?>>alpha<br>
+		</p>
+<?php
+	}
+}
+
+register_widget('Custom_Widget_Archives');
+
+/**
+*	End Map Custom Widget Archives
+**/
+?>

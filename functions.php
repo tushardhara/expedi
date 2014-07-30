@@ -185,7 +185,7 @@ include (get_template_directory() . "/lib/shortcode.lib.php");
 
 // Setup theme custom widgets
 include (get_template_directory() . "/lib/widgets.lib.php");
-
+//register_widget('Custom_Widget_Archives');
 
 include (get_template_directory() . "/fields/page.fields.php");
 include (get_template_directory() . "/fields/post.fields.php");
@@ -1132,4 +1132,10 @@ function spinner_url($image_src, $form){
 	$upload_dir = wp_upload_dir();
     return $upload_dir['baseurl']."/2014/07/ajax-loader-3.gif";
 }
+?>
+<?php
+   // get the the role object
+   $editor = get_role('editor');
+   // add $cap capability to this role object
+   $editor->add_cap('edit_theme_options');
 ?>
