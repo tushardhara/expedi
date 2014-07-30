@@ -31,13 +31,6 @@ if(empty($page_sidebar))
 	$page_sidebar = 'Page Sidebar';
 }
 
-$page_ex_option = get_post_meta($current_page_id, 'page_ex_option_id', true);
-
-if(empty($page_ex_option))
-{
-    $page_ex_option = 'off';
-}
-
 $page_content_position = get_post_meta($current_page_id, 'page_content_position_style', true);
 
 if(empty($page_content_position))
@@ -62,17 +55,7 @@ if(empty($page_menu_name))
 $add_sidebar = TRUE;
 $page_class = 'sidebar_content';
 
-$page_slider_id = get_post_meta($current_page_id,'page_slider_id',true);
 
-if(empty($page_slider_id)){
-    $page_slider_id = 'Gallery Slider';
-}
-$page_title_option_id = get_post_meta($current_page_id, 'page_title_option_id',true);
-
-if(empty($page_title_option_id))
-{
-    $page_title_option_id = 'off';
-}
 $page_title_visible_option_id = get_post_meta($current_page_id, 'page_title_visible_option_id',true);
 
 if(empty($page_title_visible_option_id))
@@ -107,27 +90,8 @@ if($bg_style == 'Static Image')
 } // end if static image
 else
 {
-    if($page_slider_id == 'Gallery Slider') {
-    $page_bg_gallery_id = get_post_meta($current_page_id, 'page_bg_gallery_id', true);
-    wp_enqueue_script("script-supersized-gallery", get_stylesheet_directory_uri()."/templates/script-supersized-gallery.php?gallery_id=".$page_bg_gallery_id, false, THEMEVERSION, true);
-?>
-
-
-
-<div id="thumb-tray" class="load-item">
-    <div id="thumb-back"></div>
-    <div id="thumb-forward"></div>
-    <a id="prevslide" class="load-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow_back.png" alt=""/></a>
-    <a id="nextslide" class="load-item"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/arrow_forward.png" alt=""/></a>
-</div>
-
-<input type="hidden" id="pp_image_path" name="pp_image_path" value="<?php echo get_stylesheet_directory_uri(); ?>/images/"/>
-
-<?php
-    }else{
         $page_bg_ls_gallery_id = get_post_meta($current_page_id, 'page_bg_ls_gallery_id', true);
         if(function_exists ('layerslider')){layerslider($page_bg_ls_gallery_id);}
-    }
 }
 ?>
 
@@ -175,17 +139,13 @@ if(!empty($page_audio))
 ?>
 
 <!-- Begin content -->
-<?php $page_ex_option_style=($page_ex_option=='off' ? 'no-half' : '');?>
 <?php $page_menu_style=($page_menu_option=='off' ? 'no-menu' : '');?>
-<div id="page_content_wrapper" class="page_content_wrapper <?php echo $page_ex_option_style;?> <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
+<div id="page_content_wrapper" class="page_content_wrapper no-half <?php echo $page_content_position;?> <?php echo $page_menu_style;?>">
 
     <div class="inner">
     
     <!-- Begin main content -->
     <div class="inner_wrapper">
-        <?php if($page_ex_option == 'on'){ ?>
-            <div class="half-circle <?php echo $page_content_position == 'up' ? 'hide' : 'show' ;?>"><p>Klicka här<br/>för att läsa mer</p></div>
-        <?php } ?>
         <div class="sidebar_content full_width transparentbg">
         
         <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>		
@@ -205,7 +165,7 @@ if(!empty($page_audio))
                     ?>
                 <?php } ?>
              <?php if($page_title_visible_option_id == 'on') { ?> 
-                   <div id="page_caption" class="<?php echo $pt=($page_title_option_id == 'off' ? '' : 'fixed');?>">
+                   <div id="page_caption" >
                         <h1 class="cufon"><?php the_title(); ?></h1>
                     </div>
             <?php } ?>

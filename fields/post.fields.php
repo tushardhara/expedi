@@ -77,18 +77,10 @@ $postmetas =
 			array(	"Static Image" => "Static Image", 
 					"Slideshow" => "Slideshow", 
 				)),
-		array("section" => "Choose Slider", "id" => "post_slider_id", "type" => "select", "title" => "Choose Slider", "description" => "Select slider type to use as background slider", "items" => 
-			array(	"Gallery Slider" => "Gallery Slider", 
-					"Layer Slider" => "Layer Slider", 
-				)),
-		array("section" => "Background Gallery", "id" => "post_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
 		
-		array("section" => "Background LS Gallery", "id" => "post_bg_ls_gallery_id", "type" => "select", "title" => "Background LS Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
+		array("section" => "Choose LayerSlider", "id" => "post_bg_ls_gallery_id", "type" => "select", "title" => "Choose LayerSlider", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
 		
-		array("section" => "Extra click button On/Off", "id" => "post_ex_option_id", "type" => "select", "title" => "Extra click button On/Off", "description" => "ON or OFF Extra click button", "items" => 
-			array(	"off" => "off", 
-					"on" => "on", 
-				)),
+		
 		array("section" => "Youtube Video ID", "id" => "post_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		array("section" => "Youtube Video Quality", "id" => "post_videoQuality", "type" => "select", "title" => "Youtube Video Quality", "description" => "Youtube Video Quality", "items" => 
 			array(	"small" => "small", 

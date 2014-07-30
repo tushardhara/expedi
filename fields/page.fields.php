@@ -114,12 +114,7 @@ $page_postmetas =
 			array(	"Static Image" => "Static Image", 
 					"Slideshow" => "Slideshow", 
 				)),
-		array("section" => "Choose Slider", "id" => "page_slider_id", "type" => "select", "title" => "Choose Slider", "description" => "Select slider type to use as background slider", "items" => 
-			array(	"Gallery Slider" => "Gallery Slider", 
-					"Layer Slider" => "Layer Slider", 
-				)),
-		array("section" => "Background Gallery", "id" => "page_bg_gallery_id", "type" => "select", "title" => "Background Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $galleries_select),
-		array("section" => "Background LS Gallery", "id" => "page_bg_ls_gallery_id", "type" => "select", "title" => "Background LS Gallery", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
+		array("section" => "Choose LayerSlider", "id" => "page_bg_ls_gallery_id", "type" => "select", "title" => "Choose LayerSlider", "description" => "If you select \"Slideshow\" as background style. Select a gallery here", "items" => $LS_Sliders),
 		
 		array("section" => "Menu", "id" => "page_menu_option_id", "type" => "select", "title" => "Menu", "description" => "ON or OFF Menu", "items" => 
 			array(	"off" => "off", 
@@ -127,14 +122,6 @@ $page_postmetas =
 				)),
 		array("section" => "Select Menu", "id" => "page_menu_id", "type" => "select", "title" => "Select Menu", "description" => "Select this menu for the page", "items" => $list_menu),
 
-		array("section" => "Extra click button On/Off", "id" => "page_ex_option_id", "type" => "select", "title" => "Extra click button On/Off", "description" => "ON or OFF Extra click button", "items" => 
-			array(	"off" => "off", 
-					"on" => "on", 
-				)),
-		array("section" => "Page Title fixed On/Off", "id" => "page_title_option_id", "type" => "select", "title" => "Page Title fixed On/Off", "description" => "ON or OFF fixed page title", "items" => 
-			array(	"off" => "off", 
-					"on" => "on", 
-				)),
 		array("section" => "Youtube Video ID", "id" => "page_youtube_id", "type" => "text", "title" => "Youtube Video ID", "description" => "If you select \"Fullscreen Youtube Video\" page template. Enter Youtube Video ID here ex. 5pEbJpjxbbU"),
 		array("section" => "Youtube Video Quality", "id" => "page_videoQuality", "type" => "select", "title" => "Youtube Video Quality", "description" => "Youtube Video Quality", "items" => 
 			array(	"small" => "small", 
