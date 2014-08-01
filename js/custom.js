@@ -562,7 +562,6 @@ $j(document).ready(function(){
     		$j('#prevslide').fadeOut();
     		$j('#nextslide').fadeOut();
     		$j('.page_control').fadeOut();
-    		$j('.top_bar').css('position', 'static');
     		$j('body,html').animate({scrollTop:0},800);
     	}
     	else
@@ -574,7 +573,6 @@ $j(document).ready(function(){
 	    	$j('#prevslide').fadeIn();
     		$j('#nextslide').fadeIn();
     		$j('.page_control').fadeIn();
-	    	$j('.top_bar').css('position', 'fixed');
 	    	$j('body,html').animate({scrollTop:0},800);
     	}
     });

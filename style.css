@@ -718,7 +718,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	padding-bottom: 15px;
 	margin: 0;
 	border-bottom: 1px solid #fff;
-	font-weight:300;
+	font-weight:600;
 	font-family:'Open Sans', arial, sans-serif;
 }
 #footer .sidebar_widget > .sidebar_widget_top,#footer .sidebar_widget > .sidebar_widget_bottom
@@ -808,7 +808,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 	padding-top: 10px;
 	/*text-shadow: 1px 1px 1px #000;*/
 	position: relative;
-	top: calc(100% - 238px);
+	top: calc(100% - 163px);
 	-webkit-transition: top 500ms ease-out;
     -moz-transition: top 500ms ease-out;
     -o-transition: top 500ms ease-out;
@@ -817,7 +817,7 @@ body.page-template-portfolio-2-php .footer_bar, body.page-template-portfolio-3-p
 }
 .page_content_wrapper.down
 {
-	top: calc(100% - 280px);
+	top: calc(100% - 163px);
 }
 .page_content_wrapper.up
 {
@@ -3673,4 +3673,40 @@ background:transparent;
 }
 iframe.logga-in input#tb_getemail {
 background:black;
+}
+
+@media screen and (min-width: 768px) and (max-width: 960px){
+	#nav_wrapper{
+		position: relative;
+		z-index: 10;
+	}
+	/* 
+	Make the Facebook Like box responsive (fluid width)
+	https://developers.facebook.com/docs/reference/plugins/like-box/ 
+	*/
+
+	/* 
+	This element holds injected scripts inside iframes that in 
+	some cases may stretch layouts. So, we're just hiding it. 
+	*/
+
+	#fb-root {
+	    display: none;
+	}
+
+	/* To fill the container and nothing else */
+
+	.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+	    width: 100% !important;
+	}
+	.ihover-container li:nth-child(2n+0) {
+		margin-right: 0px !important;
+	}
+	.ihover-container li:nth-child(2n+1) {
+		margin-right: 14px !important;
+	}
+	body.home .ihover-container li:nth-child(4), li:nth-child(5), li:nth-child(6) {
+		margin-bottom: 20px!important;
+	}
+	
 }
