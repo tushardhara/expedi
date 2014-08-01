@@ -3674,39 +3674,3 @@ background:transparent;
 iframe.logga-in input#tb_getemail {
 background:black;
 }
-
-@media screen and (min-width: 768px) and (max-width: 960px){
-	#nav_wrapper{
-		position: relative;
-		z-index: 10;
-	}
-	/* 
-	Make the Facebook Like box responsive (fluid width)
-	https://developers.facebook.com/docs/reference/plugins/like-box/ 
-	*/
-
-	/* 
-	This element holds injected scripts inside iframes that in 
-	some cases may stretch layouts. So, we're just hiding it. 
-	*/
-
-	#fb-root {
-	    display: none;
-	}
-
-	/* To fill the container and nothing else */
-
-	.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-	    width: 100% !important;
-	}
-	.ihover-container li:nth-child(2n+0) {
-		margin-right: 0px !important;
-	}
-	.ihover-container li:nth-child(2n+1) {
-		margin-right: 14px !important;
-	}
-	body.home .ihover-container li:nth-child(4), li:nth-child(5), li:nth-child(6) {
-		margin-bottom: 20px!important;
-	}
-	
-}
